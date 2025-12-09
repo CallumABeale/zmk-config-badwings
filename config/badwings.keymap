@@ -1,0 +1,139 @@
+#include <behaviours.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEF 0
+#define LOWER 1
+#define RAISE 2
+#define SUPER 3
+#define QWERT 4
+#define GAME 5
+#define GAMER 6
+
+// KEY REF
+// |  PINKY_TOP   |  RING_TOP      |  MIDDLE_TOP   |  INDEX_TOP     |  INNER_TOP    |     |  INNER_TOP    |  INDEX_TOP     |  MIDDLE_TOP   |  RING_TOP      |  PINKY_TOP   |
+// |  PINKY_HOME  |  RING_HOME     |  MIDDLE_HOME  |  INDEX_HOME    |  INNER_HOME   |     |  INNER_HOME   |  INDEX_HOME    |  MIDDLE_HOME  |  RING_HOME     |  PINKY_HOME  |
+// |  PINKY_BOT   |  RING_BOT      |  MIDDLE_BOT   |  INDEX_BOT     |  INNER_BOT    |     |  INNER_BOT    |  INDEX_BOT     |  MIDDLE_BOT   |  RING_BOT      |  PINKY_BOT   |
+// | TBS_LEFT_BOT | TBS_CENTER_BOT | TBS_RIGHT_BOT | TBS_CENTER_TOP | TBS_RIGHT_TOP |     | TBS_RIGHT_TOP | TBS_CENTER_TOP | TBS_RIGHT_BOT | TBS_CENTER_BOT | TBS_LEFT_BOT |
+
+/ {
+
+    // Activate SUPER layer by pressing LOWER and RAISE
+    conditional_layers {
+        compatible = "zmk,conditional_layers";
+        tri_layer {
+            if-layers = <LOWER RAISE>;
+            then-layer = <SUPER>;
+        };
+    };
+
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer { // Layer 0
+                    display-name = "Base"
+// ---------------------------------------------------------------------------------
+// |   Q   |   W   |  F   |   P   |   B   |     |  J  |  L   |   U   |  Y   | APOS  |
+// |   A   |   R   |  S   |   T   |   G   |     |  K  |  N   |   E   |  I   |   O   |
+// |   Z   |   X   |  C   |   D   |   V   |     |  M  |  H   | COMMA | DOT  | FSLH  |
+// | RAISE | LCTRL | LALT | LSHFT | SPACE |     | RET | BSPC |  DEL  | LGUI | LOWER |
+
+                        bindings = <
+   &kp Q     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L    &kp U      &kp Y     &kp APOS
+   &kp A     &kp R     &kp S      &kp T      &kp G                &kp K      &kp N    &kp E      &kp I     &kp O
+   &kp Z     &kp X     &kp C      &kp D      &kp V                &kp M      &kp H    &kp COMMA  &kp DOT   &kp FSLH
+   &mo RAISE &kp LCTRL &kp LALT   &kp LSHFT  &kp SPACE            &kp RET    &kp BSPC &kp DEL    &kp LGUI   &mo LOWER
+                        >;
+                };
+                raise { // Layer 1
+                    display-name = "UP"
+// ---------------------------------------------------------------------------------
+// |  ESC  |  W  |  F  |  LBKT  |  RBKT  |    |  EQUAL  |  N7  |  N8  |  N9  |  *  |
+// | GRAVE |  R  |  S  |  BSLH  |  SEMI  |    |  MINUS  |  N4  |  N5  |  N6  |  +  |
+// |  TAB  |  X  |  C  |  D     |  V     |    |  N0     |  N1  |  N2  |  N3  |  /  |
+// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+
+                        bindings = <
+   &kp ESC     &kp W     &kp F      &kp LBKT      &kp RBKT                &kp EQUAL      &kp N7   &kp N8      &kp N9     &kp *
+   &kp GRAVE   &kp R     &kp S      &kp BSLH      &kp SEMI                &kp MINUS      &kp N4   &kp N5      &kp N6     &kp +
+   &kp TAB     &kp X     &kp C      &kp D         &kp V                   &kp N0         &kp N1   &kp N2      &kp N3     &kp /
+   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+                        >;
+                };
+                lower { // Layer 2
+                    display-name = "DOWN"
+// ---------------------------------------------------------------------------------
+// |  ESC  |  W  |  UP  |  P  |  B  |     |  J  |  L  |  U  |  Y  |  '  |
+// |  A  |  LEFT  |  DOWN  |  RIGHT  |  G  |     |  K  |  N  |  E  |  I  |  O  |
+// |  Z  |  X  |  C  |  D  |  V  |     |  M  |  H  |  ,  |  .  |  /  |
+// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+
+                        bindings = <
+   &kp Q     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
+   &kp A     &kp R     &kp S      &kp T      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
+   &kp Z     &kp X     &kp C      &kp D      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
+   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+                        >;
+                };
+                super { // Layer 3
+                    display-name = "SUPER"
+// ---------------------------------------------------------------------------------
+// |  DEF  |  W  |  F  |  P  |  B  |     |  J  |  L  |  U  |  Y  |  '  |
+// |  GAME  |  R  |  S  |  T  |  G  |     |  K  |  N  |  E  |  I  |  O  |
+// |  QWERT  |  X  |  C  |  D  |  V  |     |  M  |  H  |  ,  |  .  |  /  |
+// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+
+                        bindings = <
+   &tog DEF     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
+   &tog GAME     &kp R     &kp S      &kp T      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
+   &tog QWERT     &kp X     &kp C      &kp D      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
+   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+                        >;
+                };
+                qwert { // Layer 4
+                    display-name = "QWERTY"
+// ---------------------------------------------------------------------------------
+// |  Q  |  W  |  E  |  R  |  T  |     |  Y  |  U  |  I  |  O  |  P  |
+// |  A  |  S  |  D  |  F  |  G  |     |  H  |  J  |  K  |  L  |  ;  |
+// |  Z  |  X  |  C  |  V  |  B  |     |  N  |  M  |  ,  |  .  |  /  |
+// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+
+                        bindings = <
+   &kp Q     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
+   &kp A     &kp R     &kp S      &kp T      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
+   &kp Z     &kp X     &kp C      &kp D      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
+   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+                        >;
+                };
+                GAME { // Layer 5
+                    display-name = "GAME"
+                    // RIGHT HALF NOT USED
+// ---------------------------------------------------------------------------------
+// |  T  |  Q  |  W  |  E  |  R  |     |  Y  |  U  |  I  |  O  |  P  |
+// |  G  |  A  |  S  |  D  |  F  |     |  H  |  J  |  K  |  L  |  ;  |
+// |  B  |  Z  |  X  |  C  |  V  |     |  N  |  M  |  ,  |  .  |  /  |
+// |GMER |LCTRL|LALT |LSHFT|SPACE|     | SPC | LOW |LARW |DARW |UARW |
+
+                        bindings = <
+   &kp T     &kp Q     &kp W      &kp E      &kp R                &kp J      &kp L   &kp U      &kp Y     &kp '
+   &kp G     &kp A     &kp S      &kp D      &kp F                &kp K      &kp N   &kp E      &kp I     &kp O
+   &kp B     &kp Z     &kp X      &kp C      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
+   &mo GAMER     &kp LCTRL &kp LALT   &kp LSHFT  &kp SPACE            &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+                        >;
+                };
+                GAMER { // Layer 6
+                    display-name = "GAME^"
+                    // RIGHT HALF NOT USED
+// ---------------------------------------------------------------------------------
+// |  ESC  |  N1  |  N2  |  N3  |  T  |     |  Y  |  U  |  I  |  O  |  P  |
+// | GRAVE |  N4  |  N5  |  N6  |  G  |     |  H  |  J  |  K  |  L  |  ;  |
+// |  TAB  |  N7  |  N8  |  N9  |  B  |     |  N  |  M  |  ,  |  .  |  /  |
+// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+
+                        bindings = <
+   &kp ESC     &kp N1     &kp N2      &kp N3      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
+   &kp GRAVE   &kp N4     &kp N5      &kp N6      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
+   &kp TAB     &kp N7     &kp N8      &kp N9      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
+   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+                        >;
+                };

@@ -1,0 +1,72 @@
+#include <physical_layouts.dtsi>
+
+/ {
+    badwings_physical_layout: badwings_physical_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "Bad Wings";
+
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0  105       0     0     0>
+            , <&key_physical_attrs 100 100  100  105       0     0     0>
+            , <&key_physical_attrs 100 100  200  105       0     0     0>
+            , <&key_physical_attrs 100 100  300  105       0     0     0>
+            , <&key_physical_attrs 100 100  400  105       0     0     0>
+            , <&key_physical_attrs 100 100  500  105       0     0     0>
+            , <&key_physical_attrs 100 100  900  105       0     0     0>
+            , <&key_physical_attrs 100 100 1000  105       0     0     0>
+            , <&key_physical_attrs 100 100 1100  105       0     0     0>
+            , <&key_physical_attrs 100 100 1200  105       0     0     0>
+
+            , <&key_physical_attrs 100 100    0  205       0     0     0>
+            , <&key_physical_attrs 100 100  100  205       0     0     0>
+            , <&key_physical_attrs 100 100  200  205       0     0     0>
+            , <&key_physical_attrs 100 100  300  205       0     0     0>
+            , <&key_physical_attrs 100 100  400  205       0     0     0>
+            , <&key_physical_attrs 100 100  500  205       0     0     0>
+            , <&key_physical_attrs 100 100  900  205       0     0     0>
+            , <&key_physical_attrs 100 100 1000  205       0     0     0>
+            , <&key_physical_attrs 100 100 1100  205       0     0     0>
+            , <&key_physical_attrs 100 100 1200  205       0     0     0>
+
+            , <&key_physical_attrs 100 100    0  305       0     0     0>
+            , <&key_physical_attrs 100 100  100  305       0     0     0>
+            , <&key_physical_attrs 100 100  200  305       0     0     0>
+            , <&key_physical_attrs 100 100  300  305       0     0     0>
+            , <&key_physical_attrs 100 100  400  305       0     0     0>
+            , <&key_physical_attrs 100 100  500  305       0     0     0>
+            , <&key_physical_attrs 100 100  900  305       0     0     0>
+            , <&key_physical_attrs 100 100 1000  305       0     0     0>
+            , <&key_physical_attrs 100 100 1100  305       0     0     0>
+            , <&key_physical_attrs 100 100 1200  305       0     0     0>
+
+            , <&key_physical_attrs 100 100  0    405       0     0     0>
+            , <&key_physical_attrs 100 100  100  405       0     0     0>
+            , <&key_physical_attrs 100 100  200  405       0     0     0>
+            , <&key_physical_attrs 100 100  300  405       0     0     0>
+            , <&key_physical_attrs 100 100  400  405       0     0     0>
+            , <&key_physical_attrs 100 100  500  405       0     0     0>
+            , <&key_physical_attrs 100 100  900  405       0     0     0>
+            , <&key_physical_attrs 100 100 1000  405       0     0     0>
+            , <&key_physical_attrs 100 125 1100  405       0     0     0>
+            , <&key_physical_attrs 100 125 1200  405       0     0     0>
+            ;
+    };
+
+    badwings_position_map {
+        compatible = "zmk,physical-layout-position-map";
+
+        complete;
+
+        LAYOUT {
+            physical-layout = <&layout_0>;
+            positions
+                = < 0  1  2  3  4  5  6  7  8  9>
+                , <10 11 12 13 14 15 16 17 18 19>
+                , <20 21 22 23 24 25 26 27 28 29>
+                , <30 31 32 33 34 35 36 37 38 39>;
+        };
+    };
+};

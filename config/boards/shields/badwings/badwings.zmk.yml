@@ -1,0 +1,15 @@
+file_fotmat: "1"
+id: badwings
+name: Badwings
+type: shield
+requires: [Nice!Nano] #TODO : Check
+exposes: [Nice!View] #TODO : Check
+features:
+  - keys
+  - display
+  - encoder
+  - underglow
+  - studio
+siblings:
+  - badwings_left
+  - badwings_right
