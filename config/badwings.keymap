@@ -29,20 +29,21 @@
 
         sensors {
             encoder_left: sensor-0 {
-                compatible = "zmk,behaviour-rotary-enoder";
+                compatible = "zmk,behaviour-rotary-encoder";
                 label = "ENC_LEFT";
             };
 
             encoder_right: sensor-1 {
-                compatible = "zmk,behaviour-rotary-enoder";
+                compatible = "zmk,behaviour-rotary-encoder";
                 label = "ENC_RIGHT";
             };
+        };
 
         keymap {
             compatible = "zmk,keymap";
 
             default_layer { // Layer 0
-                display-name = "Base"
+                display-name = "Base";
 // ---------------------------------------------------------------------------------
 // |   Q   |   W   |  F   |   P   |   B   |     |  J  |  L   |   U   |  Y   | APOS  |
 // |   A   |   R   |  S   |   T   |   G   |     |  K  |  N   |   E   |  I   |   O   |
@@ -73,7 +74,7 @@
                 >;
             };
             raise { // Layer 1
-                display-name = "UP"
+                display-name = "UP";
 // ---------------------------------------------------------------------------------
 // |  ESC  |  W  |  F  |  LBKT  |  RBKT  |    |  EQUAL  |  N7  |  N8  |  N9  |  *  |
 // | GRAVE |  R  |  S  |  BSLH  |  SEMI  |    |  MINUS  |  N4  |  N5  |  N6  |  +  |
@@ -88,7 +89,7 @@
                         >;
                 };
                 lower { // Layer 2
-                    display-name = "DOWN"
+                    display-name = "DOWN";
 // ---------------------------------------------------------------------------------
 // |  ESC  |  W   |  UP  |  P  |  B  |     |  J  |  L  |  U  |  Y  |  '  |
 // | GRAVE | LEFT | DOWN |  RIGHT  |  G  |     |  K  |  N  |  E  |  I  |  O  |
@@ -103,7 +104,7 @@
                         >;
                 };
                 super { // Layer 3
-                    display-name = "SUPER"
+                    display-name = "SUPER";
 // ---------------------------------------------------------------------------------
 // |  DEF  |  W  |  F  |  P  |  B  |     |  J  |  L  |  U  |  Y  |  '  |
 // |  GAME  |  R  |  S  |  T  |  G  |     |  K  |  N  |  E  |  I  |  O  |
@@ -118,7 +119,7 @@
                         >;
                 };
                 qwert { // Layer 4
-                    display-name = "QWERTY"
+                    display-name = "QWERTY";
 // ---------------------------------------------------------------------------------
 // |  Q  |  W  |  E  |  R  |  T  |     |  Y  |  U  |  I  |  O  |  P  |
 // |  A  |  S  |  D  |  F  |  G  |     |  H  |  J  |  K  |  L  |  ;  |
@@ -133,7 +134,7 @@
                         >;
                 };
                 GAME { // Layer 5
-                    display-name = "GAME"
+                    display-name = "GAME";
                     // RIGHT HALF NOT USED
 // ---------------------------------------------------------------------------------
 // |  T  |  Q  |  W  |  E  |  R  |     |  Y  |  U  |  I  |  O  |  P  |
@@ -149,7 +150,7 @@
                         >;
                 };
                 GAMER { // Layer 6
-                    display-name = "GAME^"
+                    display-name = "GAME^";
                     // RIGHT HALF NOT USED
 // ---------------------------------------------------------------------------------
 // |  ESC  |  N1  |  N2  |  N3  |  T  |     |  Y  |  U  |  I  |  O  |  P  |
