@@ -18,35 +18,62 @@
 
 / {
 
-    // Activate SUPER layer by pressing LOWER and RAISE
-    conditional_layers {
-        compatible = "zmk,conditional_layers";
-        tri_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <SUPER>;
+        // Activate SUPER layer by pressing LOWER and RAISE
+        conditional_layers {
+            compatible = "zmk,conditional_layers";
+            tri_layer {
+                if-layers = <LOWER RAISE>;
+                then-layer = <SUPER>;
+            };
         };
-    };
+
+        sensors {
+            encoder_left: sensor-0 {
+                compatible = "zmk,behaviour-rotary-enoder";
+                label = "ENC_LEFT";
+            };
+
+            encoder_right: sensor-1 {
+                compatible = "zmk,behaviour-rotary-enoder";
+                label = "ENC_RIGHT";
+            };
 
         keymap {
-                compatible = "zmk,keymap";
+            compatible = "zmk,keymap";
 
-                default_layer { // Layer 0
-                    display-name = "Base"
+            default_layer { // Layer 0
+                display-name = "Base"
 // ---------------------------------------------------------------------------------
 // |   Q   |   W   |  F   |   P   |   B   |     |  J  |  L   |   U   |  Y   | APOS  |
 // |   A   |   R   |  S   |   T   |   G   |     |  K  |  N   |   E   |  I   |   O   |
 // |   Z   |   X   |  C   |   D   |   V   |     |  M  |  H   | COMMA | DOT  | FSLH  |
 // | RAISE | LCTRL | LALT | LSHFT | SPACE |     | RET | BSPC |  DEL  | LGUI | LOWER |
 
-                        bindings = <
+                bindings = <
    &kp Q     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L    &kp U      &kp Y     &kp APOS
    &kp A     &kp R     &kp S      &kp T      &kp G                &kp K      &kp N    &kp E      &kp I     &kp O
    &kp Z     &kp X     &kp C      &kp D      &kp V                &kp M      &kp H    &kp COMMA  &kp DOT   &kp FSLH
    &mo RAISE &kp LCTRL &kp LALT   &kp LSHFT  &kp SPACE            &kp RET    &kp BSPC &kp DEL    &kp LGUI   &mo LOWER
+                    >;
+
+                sensors = <
+                    &encoder_left {
+                        bindings = <
+                            &inc_vol
+                            &dec_vol
                         >;
-                };
-                raise { // Layer 1
-                    display-name = "UP"
+                    }
+
+                    &encoder_right {
+                        bindings = <
+                            &inc_hue
+                            &dec_hue
+                        >;
+                    }
+                >;
+            };
+            raise { // Layer 1
+                display-name = "UP"
 // ---------------------------------------------------------------------------------
 // |  ESC  |  W  |  F  |  LBKT  |  RBKT  |    |  EQUAL  |  N7  |  N8  |  N9  |  *  |
 // | GRAVE |  R  |  S  |  BSLH  |  SEMI  |    |  MINUS  |  N4  |  N5  |  N6  |  +  |
@@ -63,10 +90,10 @@
                 lower { // Layer 2
                     display-name = "DOWN"
 // ---------------------------------------------------------------------------------
-// |  ESC  |  W  |  UP  |  P  |  B  |     |  J  |  L  |  U  |  Y  |  '  |
-// |  A  |  LEFT  |  DOWN  |  RIGHT  |  G  |     |  K  |  N  |  E  |  I  |  O  |
-// |  Z  |  X  |  C  |  D  |  V  |     |  M  |  H  |  ,  |  .  |  /  |
-// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+// |  ESC  |  W   |  UP  |  P  |  B  |     |  J  |  L  |  U  |  Y  |  '  |
+// | GRAVE | LEFT | DOWN |  RIGHT  |  G  |     |  K  |  N  |  E  |  I  |  O  |
+// |  TAB  |  X   |  C   |  D  |  V  |     |  M  |  H  |  ,  |  .  |  /  |
+// | ALT   | GUI  | SPC  | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
 
                         bindings = <
    &kp Q     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
@@ -85,8 +112,8 @@
 
                         bindings = <
    &tog DEF     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
-   &tog GAME     &kp R     &kp S      &kp T      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
-   &tog QWERT     &kp X     &kp C      &kp D      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
+   &tog GAME    &kp R     &kp S      &kp T      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
+   &tog QWERT   &kp X     &kp C      &kp D      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
    &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
                         >;
                 };
