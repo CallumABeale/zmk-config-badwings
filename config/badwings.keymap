@@ -45,30 +45,32 @@
             default_layer { // Layer 0
                 display-name = "Base";
 // ---------------------------------------------------------------------------------
-// |   Q   |   W   |  F   |   P   |   B   |     |  J  |  L   |   U   |  Y   | APOS  |
-// |   A   |   R   |  S   |   T   |   G   |     |  K  |  N   |   E   |  I   |   O   |
-// |   Z   |   X   |  C   |   D   |   V   |     |  M  |  H   | COMMA | DOT  | FSLH  |
-// | RAISE | LCTRL | LALT | LSHFT | SPACE |     | RET | BSPC |  DEL  | LGUI | LOWER |
+// |   Q   |   W   |   F   |   P   |   B   |     |  J   |  L   |   U   |  Y   | APOS  |
+// |   A   |   R   |   S   |   T   |   G   |     |  K   |  N   |   E   |  I   |   O   |
+// |   Z   |   X   |   C   |   D   |   V   |     |  M   |  H   | COMMA | DOT  | FSLH  |
+//         | LSHFT | SPACE |       | MUTE  |     | C_PP |      |  RET  | BSPC |
+// | RAISE | LCTRL | LALT  |                                   |  DEL  | LGUI | LOWER |
 
                 bindings = <
-   &kp Q     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L    &kp U      &kp Y     &kp APOS
-   &kp A     &kp R     &kp S      &kp T      &kp G                &kp K      &kp N    &kp E      &kp I     &kp O
-   &kp Z     &kp X     &kp C      &kp D      &kp V                &kp M      &kp H    &kp COMMA  &kp DOT   &kp FSLH
-   &mo RAISE &kp LCTRL &kp LALT   &kp LSHFT  &kp SPACE            &kp RET    &kp BSPC &kp DEL    &kp LGUI   &mo LOWER
+   &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J    &kp L    &kp U       &kp Y      &kp APOS
+   &kp A      &kp R      &kp S       &kp T    &kp G            &kp K    &kp N    &kp E       &kp I      &kp O
+   &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M    &kp H    &kp COMMA   &kp DOT    &kp FSLH
+              &kp LSHFT  &kp SPACE            &kt MUTE         &C_PP             &kp RET     &kp BSPC
+   &mo RAISE  &kp LCTRL  &kp LALT                                                &kp DEL     &kp LGUI   &mo LOWER
                     >;
 
                 sensors = <
                     &encoder_left {
                         bindings = <
-                            &inc_vol
-                            &dec_vol
+                            &C_VOL_UP
+                            &C_VOL_DN
                         >;
                     }
 
                     &encoder_right {
                         bindings = <
-                            &inc_hue
-                            &dec_hue
+                            &RGB_HUI
+                            &RGB_HUD
                         >;
                     }
                 >;
@@ -76,93 +78,179 @@
             raise { // Layer 1
                 display-name = "UP";
 // ---------------------------------------------------------------------------------
-// |  ESC  |  W  |  F  |  LBKT  |  RBKT  |    |  EQUAL  |  N7  |  N8  |  N9  |  *  |
-// | GRAVE |  R  |  S  |  BSLH  |  SEMI  |    |  MINUS  |  N4  |  N5  |  N6  |  +  |
-// |  TAB  |  X  |  C  |  D     |  V     |    |  N0     |  N1  |  N2  |  N3  |  /  |
-// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+// |  ESC  | none  | none  |  LBKT  | RBKT  |    |  EQUAL  |  N7  |  N8   |  N9   |  *   |
+// | GRAVE | none  | none  |  BSLH  | SEMI  |    |  MINUS  |  N4  |  N5   |  N6   |  +   |
+// |  TAB  | none  | none  |  none  | none  |    |  N0     |  N1  |  N2   |  N3   |  /   |
+// |       | trans | trans |        | trans |    | trans   |      | trans | trans |      |
+// | none  | trans | trans |                                      | trans | trans | none |
 
-                        bindings = <
-   &kp ESC     &kp W     &kp F      &kp LBKT      &kp RBKT                &kp EQUAL      &kp N7   &kp N8      &kp N9     &kp *
-   &kp GRAVE   &kp R     &kp S      &kp BSLH      &kp SEMI                &kp MINUS      &kp N4   &kp N5      &kp N6     &kp +
-   &kp TAB     &kp X     &kp C      &kp D         &kp V                   &kp N0         &kp N1   &kp N2      &kp N3     &kp /
-   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
-                        >;
+                    bindings = <
+   &kp ESC    &none    &none    &kp LBKT   &kp RBKT             &kp EQUAL     &kp N7   &kp N8      &kp N9     &kp *
+   &kp GRAVE  &none    &none    &kp BSLH   &kp SEMI             &kp MINUS     &kp N4   &kp N5      &kp N6     &kp +
+   &kp TAB    &none    &none    &none      &none                &kp N0        &kp N1   &kp N2      &kp N3     &kp /
+              &trans   &trans              &trans               &trans                 &trans      &trans
+   &none      &trans   &trans                                                          &trans      &trans     &none
+                    >;
+
+                    sensors = <
+                        &encoder_left {
+                            bindings = <
+                                &C_VOL_UP
+                                &C_VOL_DN
+                            >;
+                        }
+
+                        &encoder_right {
+                            bindings = <
+                                &RGB_HUI
+                                &RGB_HUD
+                            >;
+                        }
+                    >;
                 };
                 lower { // Layer 2
                     display-name = "DOWN";
 // ---------------------------------------------------------------------------------
-// |  ESC  |  W   |  UP  |  P  |  B  |     |  J  |  L  |  U  |  Y  |  '  |
-// | GRAVE | LEFT | DOWN |  RIGHT  |  G  |     |  K  |  N  |  E  |  I  |  O  |
-// |  TAB  |  X   |  C   |  D  |  V  |     |  M  |  H  |  ,  |  .  |  /  |
-// | ALT   | GUI  | SPC  | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+// |  ESC  | none  |  UP   | none  | none  |     |  F1   | F2  |  F3   |  F4   |  F5  |
+// | GRAVE | LEFT  | DOWN  | RIGHT | none  |     |  F6   | F7  |  F8   |  F9   | F1O  |
+// |  TAB  | none  | none  | none  | none  |     |  F11  | F12 | PG_UP | PG_DN | none |
+// |       | trans | trans |       | trans |     | trans |     | trans | trans |      |
+// | none  | trans | trans |                                   | trans | trans | none |
 
                         bindings = <
-   &kp Q     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
-   &kp A     &kp R     &kp S      &kp T      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
-   &kp Z     &kp X     &kp C      &kp D      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
-   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+   &kp ESC    &none      &kp UP     &none       &none          &kp F1    &kp F2    &kp F3     &kp F4     &kp F5
+   &kp GRAVE  &kp LEFT   &kp DOWN   &kp RIGHT   &none          &kp F6    &kp F7    &kp F8     &kp F9     &kp F1O
+   &kp TAB    &none      &none      &none       &none          &kp F11   &kp F12   &kp PG_UP  &kp PG_DN  &none
+              &trans     &trans                 &trans         &trans              &trans     &trans
+   &none      &trans     &trans                                                    &trans     &trans     &none
                         >;
+                sensors = <
+                    &encoder_left {
+                        bindings = <
+                            &C_VOL_UP
+                            &C_VOL_DN
+                        >;
+                    }
+
+                    &encoder_right {
+                        bindings = <
+                            &RGB_HUI
+                            &RGB_HUD
+                        >;
+                    }
+                >;
                 };
                 super { // Layer 3
                     display-name = "SUPER";
 // ---------------------------------------------------------------------------------
-// |  DEF  |  W  |  F  |  P  |  B  |     |  J  |  L  |  U  |  Y  |  '  |
-// |  GAME  |  R  |  S  |  T  |  G  |     |  K  |  N  |  E  |  I  |  O  |
-// |  QWERT  |  X  |  C  |  D  |  V  |     |  M  |  H  |  ,  |  .  |  /  |
-// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+// | DEF   | RGB_ON | RGB_OFF | RGB_EFF | RGB_EFR |     |  &none  | BT_NXT  | BT_PREV |  &none  | BT_CLR  |
+// | GAME  | &none  |  &none  | RGB_SPI | RGB_SPD |     | BT_SEL1 | BT_SEL2 | BT_SEL3 | BT_SEL4 | BT_SEL5 |
+// | QWERT | LANG1  |  LANG2  | RGB_BRI | RGB_BRD |     |   none  |   none  |   none  |  &none  | studio_unlock |
+// |       | trans  |  trans  |         |  trans  |     |  trans  |         |  trans  |  trans  | none |
+// | none  | trans  |  trans  |                 | SPC | LOW |LARW | DARW | UARW |
 
                         bindings = <
-   &tog DEF     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
-   &tog GAME    &kp R     &kp S      &kp T      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
-   &tog QWERT   &kp X     &kp C      &kp D      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
-   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+   &tog DEF    &kp RGB_ON  &kp RGB_OFF  &kp RGB_EFF  &kp RGB_EFR          &none         &kp BT_NXT     &kp BT_PREV    &kp Y         &kp BT_CLR
+   &tog GAME   &none       &kp none     &kp RGB_SPI  &kp RGB_SPD          &kp BT_SEL 1  &kp BT_SEL 2   &kp BT_SEL 3   &kp BT_SEL 4  &kp BT_SEL 5
+   &tog QWERT  &kp LANG1   &kp LANG2    &kp RGB_BRI  &kp RGB_BRD          &none         &none          &kp PG_UP      &kp PG_DN     &studio_unlock
+               &trans      &trans                    &trans               &trans                       &trans         &trans
+   &none       &trans      &ktrans                                                                     &trans         &trans        &none
                         >;
+                sensors = <
+                    &encoder_left {
+                        bindings = <
+                            &C_VOL_UP
+                            &C_VOL_DN
+                        >;
+                    }
+
+                    &encoder_right {
+                        bindings = <
+                            &RGB_HUI
+                            &RGB_HUD
+                        >;
+                    }
+                >;
                 };
                 qwert { // Layer 4
                     display-name = "QWERTY";
 // ---------------------------------------------------------------------------------
 // |  Q  |  W  |  E  |  R  |  T  |     |  Y  |  U  |  I  |  O  |  P  |
 // |  A  |  S  |  D  |  F  |  G  |     |  H  |  J  |  K  |  L  |  ;  |
-// |  Z  |  X  |  C  |  V  |  B  |     |  N  |  M  |  ,  |  .  |  /  |
-// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+// |  Z  |  X  |  C  |  V  |  B  |     |  N  |  M  |  COMMA  |  DOT  |  FSLH  |
+// | RAISE | LCTRL | LALT | LSHIFT | SPACE |     | RET | BSPC | DEL | LGUI | LOWER |
 
                         bindings = <
-   &kp Q     &kp W     &kp F      &kp P      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
-   &kp A     &kp R     &kp S      &kp T      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
-   &kp Z     &kp X     &kp C      &kp D      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
-   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+   &kp Q      &kp W      &kp F      &kp P       &kp B                &kp J      &kp L    &kp U      &kp Y     &kp '
+   &kp A      &kp R      &kp S      &kp T       &kp G                &kp K      &kp N    &kp E      &kp I     &kp O
+   &kp Z      &kp X      &kp C      &kp D       &kp V                &kp M      &kp H    &kp ,      &kp .     &kp /
+   &kp RAISE  &kp LCTRL  &kp LALT   &kp LSHIFT  &kp SPACE            &kp RET    &kp BSPC &kp DEL    &kp LGUI  &kp LOWER
                         >;
+                sensors = <
+                    &encoder_left {
+                        bindings = <
+                            &C_VOL_UP
+                            &C_VOL_DN
+                        >;
+                    }
+
+                    &encoder_right {
+                        bindings = <
+                            &RGB_HUI
+                            &RGB_HUD
+                        >;
+                    }
+                >;
                 };
                 GAME { // Layer 5
                     display-name = "GAME";
                     // RIGHT HALF NOT USED
 // ---------------------------------------------------------------------------------
-// |  T  |  Q  |  W  |  E  |  R  |     |  Y  |  U  |  I  |  O  |  P  |
-// |  G  |  A  |  S  |  D  |  F  |     |  H  |  J  |  K  |  L  |  ;  |
-// |  B  |  Z  |  X  |  C  |  V  |     |  N  |  M  |  ,  |  .  |  /  |
-// |GMER |LCTRL|LALT |LSHFT|SPACE|     | SPC | LOW |LARW |DARW |UARW |
+// |   T   |   Q   |   W   |  E  |   R   |     | none  | none | none  | none  | DEF  |
+// |   G   |   A   |   S   |  D  |   F   |     | none  | none | none  | none  | none |
+// |   B   |   Z   |   X   |  C  |   V   |     | none  | none | none  | none  | none |
+//         | trans | trans |     | trans |     | trans |      | trans | trans |
+// | GAMER | trans | trans |                                  | trans | trans | none |
 
                         bindings = <
-   &kp T     &kp Q     &kp W      &kp E      &kp R                &kp J      &kp L   &kp U      &kp Y     &kp '
-   &kp G     &kp A     &kp S      &kp D      &kp F                &kp K      &kp N   &kp E      &kp I     &kp O
-   &kp B     &kp Z     &kp X      &kp C      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
-   &mo GAMER     &kp LCTRL &kp LALT   &kp LSHFT  &kp SPACE            &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+   &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none   &none      &none     &tog DEF
+   &kp G      &kp A     &kp S     &kp D    &kp F         &none    &none   &none      &none     &none
+   &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none   &none      &none     &none
+              &trans    &trans             &trans        &trans           &trans     &trans
+   &mo GAMER  &trans    &trans                                            &trans     &trans    &none
                         >;
+                sensors = <
+                    &encoder_left {
+                        bindings = <
+                            &C_VOL_UP
+                            &C_VOL_DN
+                        >;
+                    }
+
+                    &encoder_right {
+                        bindings = <
+                            &RGB_HUI
+                            &RGB_HUD
+                        >;
+                    }
+                >;
                 };
                 GAMER { // Layer 6
                     display-name = "GAME^";
                     // RIGHT HALF NOT USED
 // ---------------------------------------------------------------------------------
-// |  ESC  |  N1  |  N2  |  N3  |  T  |     |  Y  |  U  |  I  |  O  |  P  |
-// | GRAVE |  N4  |  N5  |  N6  |  G  |     |  H  |  J  |  K  |  L  |  ;  |
-// |  TAB  |  N7  |  N8  |  N9  |  B  |     |  N  |  M  |  ,  |  .  |  /  |
-// | ALT | GUI | SPC | SPC | SPC |     | SPC | LOW |LARW |DARW |UARW |
+// |  ESC  |  N1   |  N2   |  N3  | none  |     | none  | none | none  | none  | none |
+// | GRAVE |  N4   |  N5   |  N6  | none  |     | none  | none | none  | none  | none |
+// |  TAB  |  N7   |  N8   |  N9  | none  |     | none  | none | none  | none  | none |
+// |       | trans | trans |      | trans |     | trans |      | trans | trans |      |
+// | none  | trans | trans |                                   | trans | trans | none |
 
                         bindings = <
    &kp ESC     &kp N1     &kp N2      &kp N3      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
    &kp GRAVE   &kp N4     &kp N5      &kp N6      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
    &kp TAB     &kp N7     &kp N8      &kp N9      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
-   &kp Z     &kp X     &kp C      &kp V      &kp B                &kp N      &kp M   &kp COMMA  &kp DOT   &kp APOS
+               &trans     &trans                  &trans               &trans             &trans     &trans
+   &none       &trans     &trans                                                          &trans     &trans    &none
                         >;
                 };
         };
