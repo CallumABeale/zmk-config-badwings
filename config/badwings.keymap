@@ -10,12 +10,6 @@
 //#define GAME 5
 //#define GAMER 6
 
-// KEY REF
-// |  PINKY_TOP   |  RING_TOP      |  MIDDLE_TOP   |  INDEX_TOP     |  INNER_TOP    |     |  INNER_TOP    |  INDEX_TOP     |  MIDDLE_TOP   |  RING_TOP      |  PINKY_TOP   |
-// |  PINKY_HOME  |  RING_HOME     |  MIDDLE_HOME  |  INDEX_HOME    |  INNER_HOME   |     |  INNER_HOME   |  INDEX_HOME    |  MIDDLE_HOME  |  RING_HOME     |  PINKY_HOME  |
-// |  PINKY_BOT   |  RING_BOT      |  MIDDLE_BOT   |  INDEX_BOT     |  INNER_BOT    |     |  INNER_BOT    |  INDEX_BOT     |  MIDDLE_BOT   |  RING_BOT      |  PINKY_BOT   |
-// | TBS_LEFT_BOT | TBS_CENTER_BOT | TBS_RIGHT_BOT | TBS_CENTER_TOP | TBS_RIGHT_TOP |     | TBS_RIGHT_TOP | TBS_CENTER_TOP | TBS_RIGHT_BOT | TBS_CENTER_BOT | TBS_LEFT_BOT |
-
 / {
     // Activate SUPER layer by pressing LOWER and RAISE
     conditional_layers {
@@ -41,8 +35,8 @@
                 &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J    &kp L    &kp U       &kp Y      &kp APOS
                 &kp A      &kp R      &kp S       &kp T    &kp G            &kp K    &kp N    &kp E       &kp I      &kp O
                 &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M    &kp H    &kp COMMA   &kp DOT    &kp FSLH
-                           &kp LSHFT  &kp SPACE            &kt MUTE         &C_PP             &kp RET     &kp BSPC
-                &mo RAISE  &kp LCTRL  &kp LALT                                                &kp DEL     &kp LGUI   &mo LOWER
+                &none      &kp LSHFT  &kp SPACE   &none    &kt MUTE         &C_PP    &none    &kp RET     &kp BSPC   &none
+                &mo RAISE  &kp LCTRL  &kp LALT    &none    &none            &none    &none    &kp DEL     &kp LGUI   &mo LOWER
             >;
         };
 
@@ -58,8 +52,8 @@
                 &kp ESC    &none    &none    &kp LBKT   &kp RBKT             &kp EQUAL     &kp N7   &kp N8      &kp N9     &kp *
                 &kp GRAVE  &none    &none    &kp BSLH   &kp SEMI             &kp MINUS     &kp N4   &kp N5      &kp N6     &kp +
                 &kp TAB    &none    &none    &none      &none                &kp N0        &kp N1   &kp N2      &kp N3     &kp /
-                           &trans   &trans              &trans               &trans                 &trans      &trans
-                &none      &trans   &trans                                                          &trans      &trans     &none
+                &none      &trans   &trans   &none      &trans               &trans        &none    &trans      &trans     &none
+                &none      &trans   &trans   &none      &none                &none         &none    &trans      &trans     &none
             >;
         };
 
@@ -75,8 +69,8 @@
                 &kp ESC    &none      &kp UP     &none       &none          &kp F1    &kp F2    &kp F3     &kp F4     &kp F5
                 &kp GRAVE  &kp LEFT   &kp DOWN   &kp RIGHT   &none          &kp F6    &kp F7    &kp F8     &kp F9     &kp F10
                 &kp TAB    &none      &none      &none       &none          &kp F11   &kp F12   &kp PG_UP  &kp PG_DN  &none
-                           &trans     &trans                 &trans         &trans              &trans     &trans
-                &none      &trans     &trans                                                    &trans     &trans     &none
+                &none      &trans     &trans     &none       &trans         &trans    &none     &trans     &trans     &none
+                &none      &trans     &trans     &none       &none          &none     &none     &trans     &trans     &none
             >;
         };
 
@@ -92,8 +86,8 @@
                 &tog DEF    &kp RGB_ON  &kp RGB_OFF  &kp RGB_EFF  &kp RGB_EFR          &none         &kp BT_NXT     &kp BT_PREV    &kp Y         &kp BT_CLR
                 &tog GAME   &none       &none        &kp RGB_SPI  &kp RGB_SPD          &kp BT_SEL1   &kp BT_SEL2    &kp BT_SEL3    &kp BT_SEL4   &kp BT_SEL5
                 &tog QWERT  &kp LANG1   &kp LANG2    &kp RGB_BRI  &kp RGB_BRD          &none         &none          &kp PG_UP      &kp PG_DN     &studio_unlock
-                            &trans      &trans                    &trans               &trans                       &trans         &trans
-                &none       &trans      &trans                                                                      &trans         &trans        &none
+                &none       &trans      &trans       &none        &trans               &trans        &none          &trans         &trans        &none
+                &none       &trans      &trans       &none        &none                &none         &none          &trans         &trans        &none
             >;
         };
     };
