@@ -56,8 +56,8 @@
                 &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J    &kp L    &kp U       &kp Y      &kp APOS
                 &kp A      &kp R      &kp S       &kp T    &kp G            &kp K    &kp N    &kp E       &kp I      &kp O
                 &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M    &kp H    &kp COMMA   &kp DOT    &kp FSLH
-                           &kp LSHFT  &kp SPACE            &kt MUTE         &C_PP             &kp RET     &kp BSPC
-                &mo RAISE  &kp LCTRL  &kp LALT                                                &kp DEL     &kp LGUI   &mo LOWER
+                &none      &kp LSHFT  &kp SPACE   &none    &kt MUTE         &C_PP    &none    &kp RET     &kp BSPC   &none
+                &mo RAISE  &kp LCTRL  &kp LALT    &none    &none            &none    &none    &kp DEL     &kp LGUI   &mo LOWER
             >;
 
             sensor-bindings = <
