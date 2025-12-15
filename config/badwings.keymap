@@ -43,11 +43,11 @@
             // | RAISE | LCTRL | LALT  |                                   |  DEL  | LGUI | LOWER |
 
             bindings = <
-                &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J    &kp L    &kp U       &kp Y      &kp APOS
-                &kp A      &kp R      &kp S       &kp T    &kp G            &kp K    &kp N    &kp E       &kp I      &kp O
-                &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M    &kp H    &kp COMMA   &kp DOT    &kp FSLH
-                           &kp LSHFT  &kp SPACE            &kt MUTE         &C_PP             &kp RET     &kp BSPC
-                &mo RAISE  &kp LCTRL  &kp LALT                                                &kp DEL     &kp LGUI   &mo LOWER
+                &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J     &kp L    &kp U       &kp Y      &kp APOS
+                &kp A      &kp R      &kp S       &kp T    &kp G            &kp K     &kp N    &kp E       &kp I      &kp O
+                &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M     &kp H    &kp COMMA   &kp DOT    &kp FSLH
+                           &kp LSHFT  &kp SPACE            &kt MUTE         &kp C_PP           &kp RET     &kp BSPC
+                &mo RAISE  &kp LCTRL  &kp LALT                                                 &kp DEL     &kp LGUI   &mo LOWER
             >;
 
             sensor-bindings = <
