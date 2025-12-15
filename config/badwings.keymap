@@ -6,9 +6,9 @@
 #define LOWER 1
 #define RAISE 2
 #define SUPER 3
-#define QWERT 4
-#define GAME 5
-#define GAMER 6
+//#define QWERT 4
+//#define GAME 5
+//#define GAMER 6
 
 // KEY REF
 // |  PINKY_TOP   |  RING_TOP      |  MIDDLE_TOP   |  INDEX_TOP     |  INNER_TOP    |     |  INNER_TOP    |  INDEX_TOP     |  MIDDLE_TOP   |  RING_TOP      |  PINKY_TOP   |
@@ -25,20 +25,6 @@
             then-layer = <SUPER>;
         };
     };
-
-    // Define encoder behaviors
-    behaviors {
-        enc_vol: sensor_rotate_kp {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&C_VOL_UP &C_VOL_DN>;
-        };
-
-        enc_hue: sensor_rotate_kp2 {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&RGB_HUI &RGB_HUD>;
-        };
     };
 
     keymap {
@@ -59,11 +45,6 @@
                            &kp LSHFT  &kp SPACE            &kt MUTE         &C_PP             &kp RET     &kp BSPC
                 &mo RAISE  &kp LCTRL  &kp LALT                                                &kp DEL     &kp LGUI   &mo LOWER
             >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            >;
         };
 
         raise { // Layer 1
@@ -80,11 +61,6 @@
                 &kp TAB    &none    &none    &none      &none                &kp N0        &kp N1   &kp N2      &kp N3     &kp /
                            &trans   &trans              &trans               &trans                 &trans      &trans
                 &none      &trans   &trans                                                          &trans      &trans     &none
-            >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
             >;
         };
 
@@ -103,11 +79,6 @@
                            &trans     &trans                 &trans         &trans              &trans     &trans
                 &none      &trans     &trans                                                    &trans     &trans     &none
             >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            >;
         };
 
         super { // Layer 3
@@ -124,79 +95,6 @@
                 &tog QWERT  &kp LANG1   &kp LANG2    &kp RGB_BRI  &kp RGB_BRD          &none         &none          &kp PG_UP      &kp PG_DN     &studio_unlock
                             &trans      &trans                    &trans               &trans                       &trans         &trans
                 &none       &trans      &trans                                                                      &trans         &trans        &none
-            >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            >;
-        };
-
-        qwert { // Layer 4
-            display-name = "QWERTY";
-            // ---------------------------------------------------------------------------------
-            // |   Q   |   W   |   E   |  R  |   T   |     |   Y   |  U  |   I   |   O   |   P   |
-            // |   A   |   S   |   D   |  F  |   G   |     |   H   |  J  |   K   |   L   |   ;   |
-            // |   Z   |   X   |   C   |  V  |   B   |     |   N   |  M  | COMMA |  DOT  | FSLH  |
-            //         | trans | trans |     | trans |     | trans |     | trans | trans |
-            // | trans | trans | trans |                                 | trans | trans | trans |
-            bindings = <
-                &kp Q      &kp W      &kp E      &kp R       &kp T                &kp Y      &kp U    &kp I      &kp O     &kp P
-                &kp A      &kp S      &kp D      &kp F       &kp G                &kp H      &kp J    &kp K      &kp L     &kp SEMI
-                &kp Z      &kp X      &kp C      &kp V       &kp B                &kp N      &kp M    &kp COMMA  &kp DOT   &kp FSLH
-                           &trans     &trans                 &trans               &trans              &trans     &trans
-                &trans     &trans     &trans                                                          &trans     &trans    &trans
-            >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            >;
-        };
-
-        GAME { // Layer 5
-            display-name = "GAME";
-            // RIGHT HALF NOT USED
-            // ---------------------------------------------------------------------------------
-            // |   T   |   Q   |   W   |  E  |   R   |     | none  | none | none  | none  | DEF  |
-            // |   G   |   A   |   S   |  D  |   F   |     | none  | none | none  | none  | none |
-            // |   B   |   Z   |   X   |  C  |   V   |     | none  | none | none  | none  | none |
-            //         | trans | trans |     | trans |     | trans |      | trans | trans |
-            // | GAMER | trans | trans |                                  | trans | trans | none |
-            bindings = <
-                &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none   &none      &none     &tog DEF
-                &kp G      &kp A     &kp S     &kp D    &kp F         &none    &none   &none      &none     &none
-                &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none   &none      &none     &none
-                           &trans    &trans             &trans        &trans           &trans     &trans
-                &mo GAMER  &trans    &trans                                            &trans     &trans    &none
-            >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            >;
-        };
-
-        GAMER { // Layer 6
-            display-name = "GAME^";
-            // RIGHT HALF NOT USED
-            // ---------------------------------------------------------------------------------
-            // |  ESC  |  N1   |  N2   |  N3  | none  |     | none  | none | none  | none  | none |
-            // | GRAVE |  N4   |  N5   |  N6  | none  |     | none  | none | none  | none  | none |
-            // |  TAB  |  N7   |  N8   |  N9  | none  |     | none  | none | none  | none  | none |
-            // |       | trans | trans |      | trans |     | trans |      | trans | trans |      |
-            // | none  | trans | trans |                                   | trans | trans | none |
-            bindings = <
-                &kp ESC     &kp N1     &kp N2      &kp N3      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
-                &kp GRAVE   &kp N4     &kp N5      &kp N6      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
-                &kp TAB     &kp N7     &kp N8      &kp N9      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
-                            &trans     &trans                  &trans               &trans             &trans     &trans
-                &none       &trans     &trans                                                          &trans     &trans    &none
-            >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
             >;
         };
     };
