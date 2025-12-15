@@ -25,7 +25,6 @@
             then-layer = <SUPER>;
         };
     };
-    };
 
     keymap {
         compatible = "zmk,keymap";
