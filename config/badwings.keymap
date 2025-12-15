@@ -24,13 +24,13 @@
         enc_vol: sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&C_VOL_UP &C_VOL_DN>;
+            bindings = <&C_VOL_UP>, <&C_VOL_DN>;
         };
 
         enc_hue: sensor_rotate_kp2 {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&RGB_HUI &RGB_HUD>;
+            bindings = <&RGB_HUI>, <&RGB_HUD>;
         };
     };
 
