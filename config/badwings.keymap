@@ -104,7 +104,7 @@
                 &tog GAME   &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
                 &tog QWERT  &kp LANG1       &kp LANG2        &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &none          &studio_unlock
                             &trans          &trans                            &trans                   &trans                        &trans         &trans
-u               &none       &trans          &trans                                                                                   &trans         &trans         &none
+                &none       &trans          &trans                                                                                   &trans         &trans         &none
             >;
         };
 
