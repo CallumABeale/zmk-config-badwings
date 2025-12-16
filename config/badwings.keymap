@@ -38,134 +38,134 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer { // Layer 0
+        default_layer {
             display-name = "Base";
-            // ------------------------------------------------------------------------------------
-            // |   Q   |   W   |   F   |   P   |   B   |     |  J   |  L   |   U   |  Y   | APOS  |
-            // |   A   |   R   |   S   |   T   |   G   |     |  K   |  N   |   E   |  I   |   O   |
-            // |   Z   |   X   |   C   |   D   |   V   |     |  M   |  H   | COMMA | DOT  | FSLH  |
-            //         | LSHFT | SPACE |       | MUTE  |     | C_PP |      |  RET  | BSPC |
-            // | RAISE | LCTRL | LALT  |                                   |  DEL  | LGUI | LOWER |
+// ------------------------------------------------------------------------------------
+// |   Q   |   W   |   F   |   P   |   B   |     |  J   |  L   |   U   |  Y   | APOS  |
+// |   A   |   R   |   S   |   T   |   G   |     |  K   |  N   |   E   |  I   |   O   |
+// |   Z   |   X   |   C   |   D   |   V   |     |  M   |  H   | COMMA | DOT  | FSLH  |
+//         | LSHFT | SPACE |       | MUTE  |     | C_PP |      |  RET  | BSPC |
+// | RAISE | LCTRL | LALT  |                                   |  DEL  | LGUI | LOWER |
 
-            bindings = <
-                &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J      &kp L    &kp U       &kp Y      &kp APOS
-                &kp A      &kp R      &kp S       &kp T    &kp G            &kp K      &kp N    &kp E       &kp I      &kp O
-                &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M      &kp H    &kp COMMA   &kp DOT    &kp FSLH
-                           &kp LSHFT  &kp SPACE            &kt MUTE         &kp C_PP            &kp RET     &kp BSPC
-                &mo RAISE  &kp LCTRL  &kp LALT                                                  &kp DEL     &kp LGUI   &mo LOWER
-            >;
+bindings = <
+    &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J      &kp L    &kp U       &kp Y      &kp APOS
+    &kp A      &kp R      &kp S       &kp T    &kp G            &kp K      &kp N    &kp E       &kp I      &kp O
+    &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M      &kp H    &kp COMMA   &kp DOT    &kp FSLH
+                &kp LSHFT  &kp SPACE            &kt MUTE         &kp C_PP            &kp RET     &kp BSPC
+    &mo RAISE  &kp LCTRL  &kp LALT                                                  &kp DEL     &kp LGUI   &mo LOWER
+>;
+sensor-bindings = <&rot_kp PG_UP PG_DN>;
 
-            sensor-bindings = <&rot_kp PG_UP PG_DN>;
         };
 
-        raise { // Layer 1
+        raise {
             display-name = "UP";
-            // ---------------------------------------------------------------------------------
-            // |  ESC  | none  | none  |  LBKT  | RBKT  |    |  EQUAL  |  N7  |  N8   |  N9   |  *   |
-            // | GRAVE | none  | none  |  BSLH  | SEMI  |    |  MINUS  |  N4  |  N5   |  N6   |  +   |
-            // |  TAB  | none  | none  |  none  | none  |    |  N0     |  N1  |  N2   |  N3   |  /   |
-            // |       | trans | trans |        | trans |    | trans   |      | trans | trans |      |
-            // | none  | trans | trans |                                      | trans | trans | none |
+// ---------------------------------------------------------------------------------
+// |  ESC  | none  | none  |  LBKT  | RBKT  |    |  EQUAL  |  N7  |  N8   |  N9   |  *   |
+// | GRAVE | none  | none  |  BSLH  | SEMI  |    |  MINUS  |  N4  |  N5   |  N6   |  +   |
+// |  TAB  | none  | none  |  none  | none  |    |  N0     |  N1  |  N2   |  N3   |  /   |
+// |       | trans | trans |        | trans |    | trans   |      | trans | trans |      |
+// | none  | trans | trans |                                      | trans | trans | none |
 
-            bindings = <
-                &kp ESC    &none    &none    &kp LBKT   &kp RBKT             &kp EQUAL     &kp N7   &kp N8      &kp N9     &kp *
-                &kp GRAVE  &none    &none    &kp BSLH   &kp SEMI             &kp MINUS     &kp N4   &kp N5      &kp N6     &kp +
-                &kp TAB    &none    &none    &none      &none                &kp N0        &kp N1   &kp N2      &kp N3     &kp /
-                           &trans   &trans              &trans               &trans                 &trans      &trans
-                &none      &trans   &trans                                                          &trans      &trans     &none
-            >;
+bindings = <
+    &kp ESC    &none    &none    &kp LBKT   &kp RBKT             &kp EQUAL     &kp N7   &kp N8      &kp N9     &kp *
+    &kp GRAVE  &none    &none    &kp BSLH   &kp SEMI             &kp MINUS     &kp N4   &kp N5      &kp N6     &kp +
+    &kp TAB    &none    &none    &none      &none                &kp N0        &kp N1   &kp N2      &kp N3     &kp /
+                &trans   &trans              &trans               &trans                 &trans      &trans
+    &none      &trans   &trans                                                          &trans      &trans     &none
+>;
         };
 
-        lower { // Layer 2
+        lower {
             display-name = "DOWN";
-            // ---------------------------------------------------------------------------------
-            // |  ESC  | none  |  UP   | none  | none  |     |  F1   | F2  |  F3   |  F4   |  F5  |
-            // | GRAVE | LEFT  | DOWN  | RIGHT | none  |     |  F6   | F7  |  F8   | F9   | F10  |
-            // |  TAB  | none  | none  | none  | none  |     |  F11  | F12 | PG_UP | PG_DN | none |
-            // |       | trans | trans |       | trans |     | trans |     | trans | trans |      |
-            // | none  | trans | trans |                                   | trans | trans | none |
+// ---------------------------------------------------------------------------------
+// |  ESC  | none  |  UP   | none  | none  |     |  F1   | F2  |  F3   |  F4   |  F5  |
+// | GRAVE | LEFT  | DOWN  | RIGHT | none  |     |  F6   | F7  |  F8   | F9   | F10  |
+// |  TAB  | none  | none  | none  | none  |     |  F11  | F12 | PG_UP | PG_DN | none |
+// |       | trans | trans |       | trans |     | trans |     | trans | trans |      |
+// | none  | trans | trans |                                   | trans | trans | none |
 
-            bindings = <
-                &kp ESC    &none      &kp UP     &none       &none          &kp F1    &kp F2    &kp F3     &kp F4     &kp F5
-                &kp GRAVE  &kp LEFT   &kp DOWN   &kp RIGHT   &none          &kp F6    &kp F7    &kp F8     &kp F9     &kp F10
-                &kp TAB    &none      &none      &none       &none          &kp F11   &kp F12   &kp PG_UP  &kp PG_DN  &none
-                           &trans     &trans                 &trans         &trans              &trans     &trans
-                &none      &trans     &trans                                                    &trans     &trans     &none
-            >;
+bindings = <
+    &kp ESC    &none      &kp UP     &none       &none          &kp F1    &kp F2    &kp F3     &kp F4     &kp F5
+    &kp GRAVE  &kp LEFT   &kp DOWN   &kp RIGHT   &none          &kp F6    &kp F7    &kp F8     &kp F9     &kp F10
+    &kp TAB    &none      &none      &none       &none          &kp F11   &kp F12   &kp PG_UP  &kp PG_DN  &none
+                &trans     &trans                 &trans         &trans              &trans     &trans
+    &none      &trans     &trans                                                    &trans     &trans     &none
+>;
         };
 
-        super { // Layer 3
+        super {
             display-name = "SUPER";
-            // ---------------------------------------------------------------------------------
-            // | DEF   | RGB_ON | RGB_OFF | RGB_EFF | RGB_EFR |     |  &none  | BT_NXT  | BT_PREV |  &none  | BT_CLR  |
-            // | GAME  | &none  |  &none  | RGB_SPI | RGB_SPD |     | BT_SEL1 | BT_SEL2 | BT_SEL3 | BT_SEL4 | BT_SEL5 |
-            // | QWERT | LANG1  |  LANG2  | RGB_BRI | RGB_BRD |     |   none  |   none  |   none  |  &none  | studio_unlock |
-            // |       | trans  |  trans  |         |  trans  |     |  trans  |         |  trans  |  trans  | none |
-            // | none  | trans  |  trans  |                                             |  trans  |  trans  | none |
+// ---------------------------------------------------------------------------------
+// | DEF   | RGB_ON | RGB_OFF | RGB_EFF | RGB_EFR |     |  &none  | BT_NXT  | BT_PREV |  &none  | BT_CLR  |
+// | GAME  | &none  |  &none  | RGB_SPI | RGB_SPD |     | BT_SEL1 | BT_SEL2 | BT_SEL3 | BT_SEL4 | BT_SEL5 |
+// | QWERT | LANG1  |  LANG2  | RGB_BRI | RGB_BRD |     |   none  |   none  |   none  |  &none  | studio_unlock |
+// |       | trans  |  trans  |         |  trans  |     |  trans  |         |  trans  |  trans  | none |
+// | none  | trans  |  trans  |                                             |  trans  |  trans  | none |
 
-            bindings = <
-                &tog DEF    &kp RGB_ON  &kp RGB_OFF  &kp RGB_EFF  &kp RGB_EFR          &none         &kp BT_NXT     &kp BT_PREV    &kp Y         &kp BT_CLR
-                &tog GAME   &none       &none        &kp RGB_SPI  &kp RGB_SPD          &kp BT_SEL1   &kp BT_SEL2    &kp BT_SEL3    &kp BT_SEL4   &kp BT_SEL5
-                &tog QWERT  &kp LANG1   &kp LANG2    &kp RGB_BRI  &kp RGB_BRD          &none         &none          &kp PG_UP      &kp PG_DN     &studio_unlock
-                            &trans      &trans                    &trans               &trans                       &trans         &trans
-                &none       &trans      &trans                                                                      &trans         &trans        &none
-            >;
+bindings = <
+    &tog DEF    &kp RGB_ON  &kp RGB_OFF  &kp RGB_EFF  &kp RGB_EFR          &none         &kp BT_NXT     &kp BT_PREV    &kp Y         &kp BT_CLR
+    &tog GAME   &none       &none        &kp RGB_SPI  &kp RGB_SPD          &kp BT_SEL1   &kp BT_SEL2    &kp BT_SEL3    &kp BT_SEL4   &kp BT_SEL5
+    &tog QWERT  &kp LANG1   &kp LANG2    &kp RGB_BRI  &kp RGB_BRD          &none         &none          &kp PG_UP      &kp PG_DN     &studio_unlock
+                &trans      &trans                    &trans               &trans                       &trans         &trans
+    &none       &trans      &trans                                                                      &trans         &trans        &none
+>;
         };
 
-        qwert { // Layer 4
+        qwert {
             display-name = "QWERTY";
-            // ---------------------------------------------------------------------------------
-            // |   Q   |   W   |   E   |  R  |   T   |     |   Y   |  U  |   I   |   O   |   P   |
-            // |   A   |   S   |   D   |  F  |   G   |     |   H   |  J  |   K   |   L   |   ;   |
-            // |   Z   |   X   |   C   |  V  |   B   |     |   N   |  M  | COMMA |  DOT  | FSLH  |
-            //         | trans | trans |     | trans |     | trans |     | trans | trans |
-            // | trans | trans | trans |                                 | trans | trans | trans |
+// ---------------------------------------------------------------------------------
+// |   Q   |   W   |   E   |  R  |   T   |     |   Y   |  U  |   I   |   O   |   P   |
+// |   A   |   S   |   D   |  F  |   G   |     |   H   |  J  |   K   |   L   |   ;   |
+// |   Z   |   X   |   C   |  V  |   B   |     |   N   |  M  | COMMA |  DOT  | FSLH  |
+//         | trans | trans |     | trans |     | trans |     | trans | trans |
+// | trans | trans | trans |                                 | trans | trans | trans |
 
-            bindings = <
-                &kp Q      &kp W      &kp E      &kp R       &kp T                &kp Y      &kp U    &kp I      &kp O     &kp P
-                &kp A      &kp S      &kp D      &kp F       &kp G                &kp H      &kp J    &kp K      &kp L     &kp SEMI
-                &kp Z      &kp X      &kp C      &kp V       &kp B                &kp N      &kp M    &kp COMMA  &kp DOT   &kp FSLH
-                           &trans     &trans                 &trans               &trans              &trans     &trans
-                &trans     &trans     &trans                                                          &trans     &trans    &trans
-            >;
+bindings = <
+    &kp Q      &kp W      &kp E      &kp R       &kp T                &kp Y      &kp U    &kp I      &kp O     &kp P
+    &kp A      &kp S      &kp D      &kp F       &kp G                &kp H      &kp J    &kp K      &kp L     &kp SEMI
+    &kp Z      &kp X      &kp C      &kp V       &kp B                &kp N      &kp M    &kp COMMA  &kp DOT   &kp FSLH
+                &trans     &trans                 &trans               &trans              &trans     &trans
+    &trans     &trans     &trans                                                          &trans     &trans    &trans
+>;
         };
 
-        GAME { // Layer 5
+        GAME {
             display-name = "GAME";
-            // RIGHT HALF NOT USED
-            // ---------------------------------------------------------------------------------
-            // |   T   |   Q   |   W   |  E  |   R   |     | none  | none | none  | none  | DEF  |
-            // |   G   |   A   |   S   |  D  |   F   |     | none  | none | none  | none  | none |
-            // |   B   |   Z   |   X   |  C  |   V   |     | none  | none | none  | none  | none |
-            //         | trans | trans |     | trans |     | trans |      | trans | trans |
-            // | GAMER | trans | trans |                                  | trans | trans | none |
+// RIGHT HALF NOT USED
+// ---------------------------------------------------------------------------------
+// |   T   |   Q   |   W   |  E  |   R   |     | none  | none | none  | none  | DEF  |
+// |   G   |   A   |   S   |  D  |   F   |     | none  | none | none  | none  | none |
+// |   B   |   Z   |   X   |  C  |   V   |     | none  | none | none  | none  | none |
+//         | trans | trans |     | trans |     | trans |      | trans | trans |
+// | GAMER | trans | trans |                                  | trans | trans | none |
 
-            bindings = <
-                &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none   &none      &none     &tog DEF
-                &kp G      &kp A     &kp S     &kp D    &kp F         &none    &none   &none      &none     &none
-                &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none   &none      &none     &none
-                           &trans    &trans             &trans        &trans           &trans     &trans
-                &mo GAMER  &trans    &trans                                            &trans     &trans    &none
-            >;
+bindings = <
+    &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none   &none      &none     &tog DEF
+    &kp G      &kp A     &kp S     &kp D    &kp F         &none    &none   &none      &none     &none
+    &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none   &none      &none     &none
+               &trans    &trans             &trans        &trans           &trans     &trans
+    &mo GAMER  &trans    &trans                                            &trans     &trans    &none
+>;
         };
 
-        GAMER { // Layer 6
-            display-name = "GAME^";
-            // RIGHT HALF NOT USED
-            // ---------------------------------------------------------------------------------
-            // |  ESC  |  N1   |  N2   |  N3  | none  |     | none  | none | none  | none  | none |
-            // | GRAVE |  N4   |  N5   |  N6  | none  |     | none  | none | none  | none  | none |
-            // |  TAB  |  N7   |  N8   |  N9  | none  |     | none  | none | none  | none  | none |
-            // |       | trans | trans |      | trans |     | trans |      | trans | trans |      |
-            // | none  | trans | trans |                                   | trans | trans | none |
+        GAMER {
+display-name = "GAME^";
+// RIGHT HALF NOT USED
+// ---------------------------------------------------------------------------------
+// |  ESC  |  N1   |  N2   |  N3  | none  |     | none  | none | none  | none  | none |
+// | GRAVE |  N4   |  N5   |  N6  | none  |     | none  | none | none  | none  | none |
+// |  TAB  |  N7   |  N8   |  N9  | none  |     | none  | none | none  | none  | none |
+// |       | trans | trans |      | trans |     | trans |      | trans | trans |      |
+// | none  | trans | trans |                                   | trans | trans | none |
 
-            bindings = <
-                &kp ESC     &kp N1     &kp N2      &kp N3      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
-                &kp GRAVE   &kp N4     &kp N5      &kp N6      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
-                &kp TAB     &kp N7     &kp N8      &kp N9      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
-                            &trans     &trans                  &trans               &trans             &trans     &trans
-                &none       &trans     &trans                                                          &trans     &trans    &none
-            >;
+bindings = <
+    &kp ESC     &kp N1     &kp N2      &kp N3      &kp B                &kp J      &kp L   &kp U      &kp Y     &kp '
+    &kp GRAVE   &kp N4     &kp N5      &kp N6      &kp G                &kp K      &kp N   &kp E      &kp I     &kp O
+    &kp TAB     &kp N7     &kp N8      &kp N9      &kp V                &kp M      &kp H   &kp ,      &kp .     &kp /
+                &trans     &trans                  &trans               &trans             &trans     &trans
+    &none       &trans     &trans                                                          &trans     &trans    &none
+>;
         };
     };
 };
