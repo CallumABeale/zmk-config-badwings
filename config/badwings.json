@@ -54,24 +54,5 @@
       ]
     }
   },
-  "sensors": [
-    {
-      "label": "ENC_LEFT",
-      "type": "rotary_encoder",
-      "row": 3,
-      "col": 0,
-      "x": -50,
-      "y": 300,
-      "bindings": ["C_VOL_UP", "C_VOL_DN"]
-    },
-    {
-      "label": "ENC_RIGHT",
-      "type": "rotary_encoder",
-      "row": 3,
-      "col": 9,
-      "x": 1250,
-      "y": 300,
-      "bindings": ["RGB_HUI", "RGB_HUD"]
-    }
-  ]
+  "sensors": []
 }

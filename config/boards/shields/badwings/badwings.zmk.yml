@@ -2,8 +2,9 @@ file_fotmat: "1"
 id: badwings
 name: Badwings
 type: shield
-requires: [Nice!Nano] #TODO : Check
-exposes: [Nice!View] #TODO : Check
+url: https://github.com/CallumABeale/BadWings
+requires: [Nice!Nano]
+exposes: [Nice!View]
 features:
   - keys
   - display
