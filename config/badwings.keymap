@@ -51,7 +51,7 @@ bindings = <
     &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J       &kp L    &kp U       &kp Y      &kp APOS
     &kp A      &kp R      &kp S       &kp T    &kp G            &kp K       &kp N    &kp E       &kp I      &kp O
     &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M       &kp H    &kp COMMA   &kp DOT    &kp FSLH
-               &kp LSHFT  &kp SPACE           &kt MUTE          &kp C_PP             &kp RET     &kp BSPC
+               &kp LSHFT  &kp SPACE            &kp MUTE         &kp C_PP             &kp RET     &kp BSPC
     &mo RAISE  &kp LCTRL  &kp LALT                                                   &kp DEL     &kp LGUI   &mo LOWER
 >;
 sensor-bindings = <&rot_kp PG_UP PG_DN>;
@@ -125,7 +125,7 @@ bindings = <
     &kp Q      &kp W      &kp E      &kp R       &kp T                &kp Y      &kp U    &kp I      &kp O     &kp P
     &kp A      &kp S      &kp D      &kp F       &kp G                &kp H      &kp J    &kp K      &kp L     &kp SEMI
     &kp Z      &kp X      &kp C      &kp V       &kp B                &kp N      &kp M    &kp COMMA  &kp DOT   &kp FSLH
-                &trans     &trans                 &trans               &trans              &trans     &trans
+               &trans     &trans                 &trans               &trans              &trans     &trans
     &trans     &trans     &trans                                                          &trans     &trans    &trans
 >;
         };
