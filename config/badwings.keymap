@@ -95,16 +95,16 @@
             // ---------------------------------------------------------------------------------
             // | DEF   | RGB_ON | RGB_OFF | RGB_EFF | RGB_EFR |     |  &none  | BT_NXT  | BT_PREV |  &none  | BT_CLR  |
             // | GAME  | &none  |  &none  | RGB_SPI | RGB_SPD |     | BT_SEL1 | BT_SEL2 | BT_SEL3 | BT_SEL4 | BT_SEL5 |
-            // | QWERT | LANG1  |  LANG2  | RGB_BRI | RGB_BRD |     |   none  |   none  |   none  |  &none  | studio_unlock |
+            // | QWERT | LANG1  |  LANG2  | RGB_BRI | RGB_BRD |     |  &none  |  &none  |  &none  |  &none  | studio_unlock |
             // |       | trans  |  trans  |         |  trans  |     |  trans  |         |  trans  |  trans  | none |
             // | none  | trans  |  trans  |                                             |  trans  |  trans  | none |
 
             bindings = <
-                &tog DEF    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &none         &bt BT_NXT     &bt BT_PREV    &kp &none     &bt BT_CLR
-                &tog GAME   &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL1   &bt BT_SEL2    &bt BT_SEL3    &bt BT_SEL4   &bt BT_SEL5
-                &tog QWERT  &kp LANG1       &kp LANG2        &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none         &none          &kp PG_UP      &kp PG_DN     &studio_unlock
-                            &trans          &trans                            &trans                   &trans                       &trans         &trans
-                &none       &trans          &trans                                                                                  &trans         &trans        &none
+                &tog DEF    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &none          &bt BT_NXT     &bt BT_PRV    &kp &none      &bt BT_CLR
+                &tog GAME   &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
+                &tog QWERT  &kp LANG1       &kp LANG2        &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &none          &studio_unlock
+                            &trans          &trans                            &trans                   &trans                        &trans         &trans
+u               &none       &trans          &trans                                                                                   &trans         &trans         &none
             >;
         };
 
