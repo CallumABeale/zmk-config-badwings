@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define DEFAULT 0
+#define BASE 0
 #define LOWER 1
 #define RAISE 2
 #define SUPER 3
@@ -38,7 +38,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        DEFAULT {
+        default_layer {
             // ------------------------------------------------------------------------------------
             // |   Q   |   W   |   F   |   P   |   B   |     |  J   |  L   |   U   |  Y   | APOS  |
             // |   A   |   R   |   S   |   T   |   G   |     |  K   |  N   |   E   |  I   |   O   |
@@ -51,11 +51,11 @@
                 &kp A      &kp R      &kp S       &kp T    &kp G            &kp K       &kp N    &kp E       &kp I      &kp O
                 &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M       &kp H    &kp COMMA   &kp DOT    &kp FSLH
                            &kp LSHFT  &kp SPACE            &kp C_MUTE       &kp C_PP             &kp RET     &kp BSPC
-                &mo RAISE  &kp LCTRL  &kp LALT                                                   &kp DEL     &kp LGUI   &mo LOWER
+                &mo LOWER  &kp LCTRL  &kp LALT                                                   &kp DEL     &kp LGUI   &mo RAISE
             >;
         };
 
-        RAISE {
+        lower_layer {
             // ---------------------------------------------------------------------------------
             // |  ESC  | none  | none  |  LBKT  | RBKT  |    |  EQUAL  |  N7  |  N8   |  N9   |  *   |
             // | GRAVE | none  | none  |  BSLH  | SEMI  |    |  MINUS  |  N4  |  N5   |  N6   |  +   |
@@ -72,7 +72,7 @@
             >;
         };
 
-        LOWER {
+        raise_layer {
             // ---------------------------------------------------------------------------------
             // |  ESC  | none  |  UP   | none  | none  |     |  F1   | F2  |  F3   |  F4   |  F5  |
             // | GRAVE | LEFT  | DOWN  | RIGHT | none  |     |  F6   | F7  |  F8   |  F9   | F10  |
@@ -89,7 +89,7 @@
             >;
         };
 
-        SUPER {
+        super_layer {
             // ---------------------------------------------------------------------------------
             // | DEF   | RGB_ON | RGB_OFF | RGB_EFF | RGB_EFR |     |  &none  | BT_NXT  | BT_PREV |  &none  | BT_CLR  |
             // | GAME  | &none  |  &none  | RGB_SPI | RGB_SPD |     | BT_SEL1 | BT_SEL2 | BT_SEL3 | BT_SEL4 | BT_SEL5 |
@@ -106,7 +106,7 @@
             >;
         };
 
-        QWERT {
+        qwert_layer {
             // ---------------------------------------------------------------------------------
             // |   Q   |   W   |   E   |  R  |   T   |     |   Y   |  U  |   I   |   O   |   P   |
             // |   A   |   S   |   D   |  F  |   G   |     |   H   |  J  |   K   |   L   |   ;   |
@@ -123,7 +123,7 @@
             >;
         };
 
-        GAME {
+        game_layer {
             // RIGHT HALF NOT USED
             // ---------------------------------------------------------------------------------
             // |   T   |   Q   |   W   |  E  |   R   |     | none  | none | none  | none  | DEF  |
@@ -141,7 +141,7 @@
             >;
         };
 
-        GAMER {
+        gamer_layer {
             // RIGHT HALF NOT USED
             // ---------------------------------------------------------------------------------
             // |  ESC  |  N1   |  N2   |  N3  | none  |     | none  | none | none  | none  | none |
