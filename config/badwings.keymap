@@ -16,7 +16,7 @@
     conditional_layers {
         compatible = "zmk,conditional_layers";
         tri_layer {
-            if-layers = <RAISE LOWER>;
+            if-layers = <LOWER RAISE>;
             then-layer = <SUPER>;
         };
     };
@@ -98,7 +98,7 @@
             // | none  | trans  |  trans  |                                             |  trans  |  trans  | none |
 
             bindings = <
-                &tog DEFAULT    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &none          &bt BT_NXT     &bt BT_PRV    &kp &none      &bt BT_CLR
+                &tog BASE   &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &none          &bt BT_NXT     &bt BT_PRV    &kp &none      &bt BT_CLR
                 &tog GAME   &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
                 &tog QWERT  &kp LANG1       &kp LANG2        &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &none          &studio_unlock
                             &trans          &trans                            &trans                   &trans                        &trans         &trans
@@ -133,7 +133,7 @@
             // | GAMER | trans | trans |                                  | trans | trans | none |
 
             bindings = <
-                &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none   &none      &none     &tog DEFAULT
+                &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none   &none      &none     &tog BASE
                 &kp G      &kp A     &kp S     &kp D    &kp F         &none    &none   &none      &none     &none
                 &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none   &none      &none     &none
                            &trans    &trans             &trans        &trans           &trans     &trans
