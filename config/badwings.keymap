@@ -15,7 +15,7 @@
 / {
     conditional_layers {
         compatible = "zmk,conditional_layers";
-        tri_layer {
+        super_layer {
             if-layers = <LOWER RAISE>;
             then-layer = <SUPER>;
         };
