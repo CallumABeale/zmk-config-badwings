@@ -80,6 +80,8 @@
             // |       | trans | trans |       | trans |     | trans |     | trans | trans |      |
             // | none  | trans | trans |                                   | trans | trans | none |
 
+// TODO - mistake in here somwhere
+
             bindings = <
                 &kp ESC    &none      &kp UP     &none       &none          &kp F1    &kp F2    &kp F3     &kp F4     &kp F5
                 &kp GRAVE  &kp LEFT   &kp DOWN   &kp RIGHT   &none          &kp F6    &kp F7    &kp F8     &kp F9     &kp F10
@@ -98,11 +100,11 @@
             // | none  | trans  |  trans  |                                             |  trans  |  trans  | none |
 
             bindings = <
-                &tog DEF    &kp RGB_ON  &kp RGB_OFF  &kp RGB_EFF  &kp RGB_EFR          &none         &kp BT_NXT     &kp BT_PREV    &kp Y         &kp BT_CLR
-                &tog GAME   &none       &none        &kp RGB_SPI  &kp RGB_SPD          &kp BT_SEL1   &kp BT_SEL2    &kp BT_SEL3    &kp BT_SEL4   &kp BT_SEL5
-                &tog QWERT  &kp LANG1   &kp LANG2    &kp RGB_BRI  &kp RGB_BRD          &none         &none          &kp PG_UP      &kp PG_DN     &studio_unlock
-                            &trans      &trans                    &trans               &trans                       &trans         &trans
-                &none       &trans      &trans                                                                      &trans         &trans        &none
+                &tog DEF    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &none         &bt BT_NXT     &bt BT_PREV    &kp &none     &bt BT_CLR
+                &tog GAME   &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL1   &bt BT_SEL2    &bt BT_SEL3    &bt BT_SEL4   &bt BT_SEL5
+                &tog QWERT  &kp LANG1       &kp LANG2        &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none         &none          &kp PG_UP      &kp PG_DN     &studio_unlock
+                            &trans          &trans                            &trans                   &trans                       &trans         &trans
+                &none       &trans          &trans                                                                                  &trans         &trans        &none
             >;
         };
 
