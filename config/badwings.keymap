@@ -13,7 +13,6 @@
 #define GAMER 6
 
 / {
-    // Activate SUPER layer by pressing LOWER and RAISE
     conditional_layers {
         compatible = "zmk,conditional_layers";
         tri_layer {
@@ -28,6 +27,12 @@
             #sensor-binding-cells = <0>;
             bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
         };
+
+        rot_kp: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, ,&kp>;
+        };
     };
 
     keymap {
@@ -35,7 +40,7 @@
 
         default_layer { // Layer 0
             display-name = "Base";
-            // ---------------------------------------------------------------------------------
+            // ------------------------------------------------------------------------------------
             // |   Q   |   W   |   F   |   P   |   B   |     |  J   |  L   |   U   |  Y   | APOS  |
             // |   A   |   R   |   S   |   T   |   G   |     |  K   |  N   |   E   |  I   |   O   |
             // |   Z   |   X   |   C   |   D   |   V   |     |  M   |  H   | COMMA | DOT  | FSLH  |
@@ -43,17 +48,14 @@
             // | RAISE | LCTRL | LALT  |                                   |  DEL  | LGUI | LOWER |
 
             bindings = <
-                &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J     &kp L    &kp U       &kp Y      &kp APOS
-                &kp A      &kp R      &kp S       &kp T    &kp G            &kp K     &kp N    &kp E       &kp I      &kp O
-                &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M     &kp H    &kp COMMA   &kp DOT    &kp FSLH
-                           &kp LSHFT  &kp SPACE            &kt MUTE         &kp C_PP           &kp RETURN  &kp BSPC
-                &mo RAISE  &kp LCTRL  &kp LALT                                                 &kp DEL     &kp LGUI   &mo LOWER
+                &kp Q      &kp W      &kp F       &kp P    &kp B            &kp J      &kp L    &kp U       &kp Y      &kp APOS
+                &kp A      &kp R      &kp S       &kp T    &kp G            &kp K      &kp N    &kp E       &kp I      &kp O
+                &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M      &kp H    &kp COMMA   &kp DOT    &kp FSLH
+                           &kp LSHFT  &kp SPACE            &kt MUTE         &kp C_PP            &kp RET     &kp BSPC
+                &mo RAISE  &kp LCTRL  &kp LALT                                                  &kp DEL     &kp LGUI   &mo LOWER
             >;
 
-            sensor-bindings = <
-                &encoder_left { bindings = <&rgb_encoder>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            >;
+            sensor-bindings = <&rot_kp PG_UP PG_DN>;
         };
 
         raise { // Layer 1
@@ -72,11 +74,6 @@
                            &trans   &trans              &trans               &trans                 &trans      &trans
                 &none      &trans   &trans                                                          &trans      &trans     &none
             >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            //>;
         };
 
         lower { // Layer 2
@@ -95,11 +92,6 @@
                            &trans     &trans                 &trans         &trans              &trans     &trans
                 &none      &trans     &trans                                                    &trans     &trans     &none
             >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            //>;
         };
 
         super { // Layer 3
@@ -118,11 +110,6 @@
                             &trans      &trans                    &trans               &trans                       &trans         &trans
                 &none       &trans      &trans                                                                      &trans         &trans        &none
             >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            //>;
         };
 
         qwert { // Layer 4
@@ -141,11 +128,6 @@
                            &trans     &trans                 &trans               &trans              &trans     &trans
                 &trans     &trans     &trans                                                          &trans     &trans    &trans
             >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-           // >;
         };
 
         GAME { // Layer 5
@@ -165,11 +147,6 @@
                            &trans    &trans             &trans        &trans           &trans     &trans
                 &mo GAMER  &trans    &trans                                            &trans     &trans    &none
             >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-           // >;
         };
 
         GAMER { // Layer 6
@@ -189,11 +166,6 @@
                             &trans     &trans                  &trans               &trans             &trans     &trans
                 &none       &trans     &trans                                                          &trans     &trans    &none
             >;
-
-            // sensor-bindings = <
-                // &encoder_left { bindings = <&enc_vol>; }
-                // &encoder_right { bindings = <&enc_hue>; }
-            //>;
         };
     };
 };
