@@ -3,8 +3,8 @@ id: badwings
 name: Badwings
 type: shield
 url: https://github.com/CallumABeale/BadWings
-requires: [Nice!Nano]
-exposes: [Nice!View]
+requires: [nice_nano_v2]
+exposes: [nice_view]
 features:
   - keys
   - display
