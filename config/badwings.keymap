@@ -48,7 +48,7 @@
                 &mo LOWER  &kp LCTRL  &kp LALT                                                   &kp DEL     &kp LGUI   &mo RAISE
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         lower_layer {
@@ -101,7 +101,7 @@
                 &none       &trans          &trans                                                                                   &trans         &trans         &none
             >;
 
-            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_BRI_UP C_BRI_DN>
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_BRI_UP C_BRI_DN>;
         };
 
         qwert_layer {
@@ -138,7 +138,7 @@
                 &mo GAMER  &trans    &trans                                            &trans     &trans    &none
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         gamer_layer {
