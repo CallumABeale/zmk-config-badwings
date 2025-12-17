@@ -20,8 +20,8 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: badwings_left nice_view
+    shield: badwings_left nice_view_adaptor nice_view
   - board: nice_nano_v2
-    shield: badwings_right nice_view
+    shield: badwings_right nice_view_adaptor nice_view
   - board: nice_nano_v2
     shield: settings_reset
