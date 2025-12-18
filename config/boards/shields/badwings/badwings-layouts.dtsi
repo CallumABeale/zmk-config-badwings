@@ -5,6 +5,8 @@
     badwings_layout: badwings_layout {
         compatible = "zmk,physical-layout";
         display-name = "Bad Wings";
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
 
         keys
             // w   h    x    y     rot    rx    ry
@@ -68,7 +70,7 @@
 };
 
 &badwings_position_map {
-    badwings_layout: badwings {
+    badwings_posmap: badwings {
         physical-layout = <&badwings_layout>;
         positions
         = < 0  1  2  3  4  5  6  7  8  9>
