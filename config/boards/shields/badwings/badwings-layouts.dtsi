@@ -69,7 +69,7 @@
     };
 };
 
-&position_map {
+&badwings_position_map {
     badwings_posmap: badwings {
         physical-layout = <&badwings_layout>;
         positions

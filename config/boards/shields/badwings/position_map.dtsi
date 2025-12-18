@@ -1,6 +1,6 @@
 / {
     badwings_position_map: badwings_position_map {
-        compatible = "zmk, physical-layout-position-map";
+        compatible = "zmk,physical-layout-position-map";
 
         complete;
     };
