@@ -3,7 +3,7 @@
 
 / {
     chosen {
-        zmk,physical-layout = &physical_layout0;
+        zmk,physical-layout = &badwings_layout;
     };
 
     default_transform: keymap_transform_0 {
