@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/ext_power.h>
 
 #define BASE 0
 #define QWERT 1
@@ -126,16 +127,16 @@
             // ---------------------------------------------------------------------------------
             // | DEF   | RGB_ON | RGB_OFF | RGB_EFF | RGB_EFR |     |  &none  | BT_NXT  | BT_PREV |  &none  | BT_CLR  |
             // | GAME  | &none  |  &none  | RGB_SPI | RGB_SPD |     | BT_SEL1 | BT_SEL2 | BT_SEL3 | BT_SEL4 | BT_SEL5 |
-            // | QWERT | &none  |  &none  | RGB_BRI | RGB_BRD |     |  &none  |  &none  |  &none  |  &none  | studio_unlock |
+            // | QWERT | &none  |  &none  | RGB_BRI | RGB_BRD |     |  &none  |  &none  |  &none  | &EP_ON  | studio_unlock |
             // |       | trans  |  trans  |         |  trans  |     |  trans  |         |  trans  |  trans  | none |
             // | none  | trans  |  trans  |                                             |  trans  |  trans  | none |
 
             bindings = <
-                &to BASE    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &none          &bt BT_NXT     &bt BT_PRV     &kp &none      &bt BT_CLR
-                &to GAME    &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
-                &to QWERT   &none           &none            &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &none          &studio_unlock
+                &to BASE    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &none          &bt BT_NXT     &bt BT_PRV     &kp &none         &bt BT_CLR
+                &to GAME    &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3      &bt BT_SEL 4
+                &to QWERT   &none           &none            &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &ext_power EP_ON  &studio_unlock
                             &trans          &trans                            &trans                   &trans                        &trans         &trans
-                &none       &trans          &trans                                                                                   &trans         &trans         &none
+                &none       &trans          &trans                                                                                   &trans         &trans            &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_BRI_UP C_BRI_DN>;
