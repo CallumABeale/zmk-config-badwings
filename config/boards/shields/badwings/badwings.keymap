@@ -5,11 +5,11 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
-#define LOWER 1
-#define RAISE 2
-#define SUPER 3
-#define QWERT 4
-#define GAME 5
+#define QWERT 1
+#define GAME 2
+#define LOWER 3
+#define RAISE 4
+#define SUPER 5
 #define GAMER 6
 
 / {
@@ -46,6 +46,43 @@
                 &kp Z      &kp X      &kp C       &kp D    &kp V            &kp M       &kp H    &kp COMMA   &kp DOT    &kp FSLH
                            &kp LSHFT  &kp SPACE            &kp C_MUTE       &kp C_PP             &kp RET     &kp BSPC
                 &mo LOWER  &kp LCTRL  &kp LALT                                                   &kp DEL     &kp LGUI   &mo RAISE
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        qwert_layer {
+            // ---------------------------------------------------------------------------------
+            // |   Q   |   W   |   E   |  R  |   T   |     |   Y   |  U  |   I   |   O   |   P   |
+            // |   A   |   S   |   D   |  F  |   G   |     |   H   |  J  |   K   |   L   |   ;   |
+            // |   Z   |   X   |   C   |  V  |   B   |     |   N   |  M  | COMMA |  DOT  | FSLH  |
+            //         | trans | trans |     | trans |     | trans |     | trans | trans |
+            // | LOWER | trans | trans |                                 | trans | trans | RAISE |
+
+            bindings = <
+                &kp Q      &kp W      &kp E      &kp R       &kp T                &kp Y      &kp U    &kp I      &kp O     &kp P
+                &kp A      &kp S      &kp D      &kp F       &kp G                &kp H      &kp J    &kp K      &kp L     &kp SEMI
+                &kp Z      &kp X      &kp C      &kp V       &kp B                &kp N      &kp M    &kp COMMA  &kp DOT   &kp FSLH
+                           &trans     &trans                 &trans               &trans              &trans     &trans
+                &mo LOWER  &trans     &trans                                                          &trans     &trans    &mo RAISE
+            >;
+        };
+
+        game_layer {
+            // RIGHT HALF NOT USED
+            // ---------------------------------------------------------------------------------
+            // |   T   |   Q   |   W   |  E  |   R   |     | none  | none | none  | none  | DEF  |
+            // |   G   |   A   |   S   |  D  |   F   |     | none  | none | none  | none  | none |
+            // |   B   |   Z   |   X   |  C  |   V   |     | none  | none | none  | none  | none |
+            //         | trans | trans |     | trans |     | trans |      | trans | trans |
+            // | GAMER | trans | trans |                                  | trans | trans | none |
+
+            bindings = <
+                &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none   &none      &none     &to BASE
+                &kp G      &kp A     &kp S     &kp D    &kp F         &none    &none   &none      &none     &none
+                &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none   &none      &none     &none
+                           &trans    &trans             &trans        &trans           &trans     &trans
+                &mo GAMER  &trans    &trans                                            &trans     &trans    &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -94,51 +131,14 @@
             // | none  | trans  |  trans  |                                             |  trans  |  trans  | none |
 
             bindings = <
-                &tog BASE   &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &none          &bt BT_NXT     &bt BT_PRV    &kp &none      &bt BT_CLR
-                &tog GAME   &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
-                &tog QWERT  &none           &none            &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &none          &studio_unlock
+                &to BASE    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &none          &bt BT_NXT     &bt BT_PRV     &kp &none      &bt BT_CLR
+                &to GAME    &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
+                &to QWERT   &none           &none            &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &none          &studio_unlock
                             &trans          &trans                            &trans                   &trans                        &trans         &trans
                 &none       &trans          &trans                                                                                   &trans         &trans         &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_BRI_UP C_BRI_DN>;
-        };
-
-        qwert_layer {
-            // ---------------------------------------------------------------------------------
-            // |   Q   |   W   |   E   |  R  |   T   |     |   Y   |  U  |   I   |   O   |   P   |
-            // |   A   |   S   |   D   |  F  |   G   |     |   H   |  J  |   K   |   L   |   ;   |
-            // |   Z   |   X   |   C   |  V  |   B   |     |   N   |  M  | COMMA |  DOT  | FSLH  |
-            //         | trans | trans |     | trans |     | trans |     | trans | trans |
-            // | LOWER | trans | trans |                                 | trans | trans | RAISE |
-
-            bindings = <
-                &kp Q      &kp W      &kp E      &kp R       &kp T                &kp Y      &kp U    &kp I      &kp O     &kp P
-                &kp A      &kp S      &kp D      &kp F       &kp G                &kp H      &kp J    &kp K      &kp L     &kp SEMI
-                &kp Z      &kp X      &kp C      &kp V       &kp B                &kp N      &kp M    &kp COMMA  &kp DOT   &kp FSLH
-                           &trans     &trans                 &trans               &trans              &trans     &trans
-                &mo LOWER  &trans     &trans                                                          &trans     &trans    &mo RAISE
-            >;
-        };
-
-        game_layer {
-            // RIGHT HALF NOT USED
-            // ---------------------------------------------------------------------------------
-            // |   T   |   Q   |   W   |  E  |   R   |     | none  | none | none  | none  | DEF  |
-            // |   G   |   A   |   S   |  D  |   F   |     | none  | none | none  | none  | none |
-            // |   B   |   Z   |   X   |  C  |   V   |     | none  | none | none  | none  | none |
-            //         | trans | trans |     | trans |     | trans |      | trans | trans |
-            // | GAMER | trans | trans |                                  | trans | trans | none |
-
-            bindings = <
-                &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none   &none      &none     &tog BASE
-                &kp G      &kp A     &kp S     &kp D    &kp F         &none    &none   &none      &none     &none
-                &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none   &none      &none     &none
-                           &trans    &trans             &trans        &trans           &trans     &trans
-                &mo GAMER  &trans    &trans                                            &trans     &trans    &none
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         gamer_layer {
