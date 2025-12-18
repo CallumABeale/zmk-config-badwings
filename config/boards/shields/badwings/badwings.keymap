@@ -53,35 +53,35 @@
 
         lower_layer {
             // ---------------------------------------------------------------------------------
-            // |  ESC  | none  | none  |  LBKT  | RBKT  |    |  EQUAL  |  N7  |  N8   |  N9   |  *   |
-            // | GRAVE | none  | none  |  BSLH  | SEMI  |    |  MINUS  |  N4  |  N5   |  N6   |  +   |
-            // |  TAB  | none  | none  |  none  | none  |    |  N0     |  N1  |  N2   |  N3   |  /   |
-            // |       | trans | trans |        | trans |    | trans   |      | trans | trans |      |
-            // | none  | trans | trans |                                      | trans | trans | none |
+            // |  ESC  | none  | none  |  LBKT  | RBKT  |    |  EQUAL  |  N7  |  N8   |  N9   |  *    |
+            // | GRAVE | none  | none  |  BSLH  | SEMI  |    |  MINUS  |  N4  |  N5   |  N6   |  +    |
+            // |  TAB  | none  | none  |  none  | none  |    |  N0     |  N1  |  N2   |  N3   |  /    |
+            // |       | trans | trans |        | trans |    | trans   |      | trans | trans |       |
+            // | trans | trans | trans |                                      | trans | trans | trans |
 
             bindings = <
                 &kp ESC    &none    &none    &kp LBKT   &kp RBKT             &kp EQUAL     &kp N7   &kp N8      &kp N9     &kp STAR
                 &kp GRAVE  &none    &none    &kp BSLH   &kp SEMI             &kp MINUS     &kp N4   &kp N5      &kp N6     &kp PLUS
                 &kp TAB    &none    &none    &none      &none                &kp N0        &kp N1   &kp N2      &kp N3     &kp FSLH
                            &trans   &trans              &trans               &trans                 &trans      &trans
-                &none      &trans   &trans                                                          &trans      &trans     &none
+                &trans     &trans   &trans                                                          &trans      &trans     &trans
             >;
         };
 
         raise_layer {
             // ---------------------------------------------------------------------------------
-            // |  ESC  | none  |  UP   | none  | none  |     |  F1   | F2  |  F3   |  F4   |  F5  |
-            // | GRAVE | LEFT  | DOWN  | RIGHT | none  |     |  F6   | F7  |  F8   |  F9   | F10  |
-            // |  TAB  | none  | none  | none  | none  |     |  F11  | F12 | PG_UP | PG_DN | none |
-            // |       | trans | trans |       | trans |     | trans |     | trans | trans |      |
-            // | none  | trans | trans |                                   | trans | trans | none |
+            // |  ESC  | none  |  UP   | none  | none  |     |  F1   | F2  |  F3   |  F4   |  F5   |
+            // | GRAVE | LEFT  | DOWN  | RIGHT | none  |     |  F6   | F7  |  F8   |  F9   | F10   |
+            // |  TAB  | none  | none  | none  | none  |     |  F11  | F12 | PG_UP | PG_DN | none  |
+            // |       | trans | trans |       | trans |     | trans |     | trans | trans |       |
+            // | trans | trans | trans |                                   | trans | trans | trans |
 
             bindings = <
                 &kp ESC    &none      &kp UP     &none       &none          &kp F1    &kp F2    &kp F3     &kp F4     &kp F5
                 &kp GRAVE  &kp LEFT   &kp DOWN   &kp RIGHT   &none          &kp F6    &kp F7    &kp F8     &kp F9     &kp F10
                 &kp TAB    &none      &none      &none       &none          &kp F11   &kp F12   &kp PG_UP  &kp PG_DN  &none
                            &trans     &trans                 &trans         &trans              &trans     &trans
-                &none      &trans     &trans                                                    &trans     &trans     &none
+                &trans     &trans     &trans                                                    &trans     &trans     &trans
             >;
         };
 
