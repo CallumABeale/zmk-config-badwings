@@ -13,9 +13,9 @@
 #define SUPER 5
 #define GAMER 6
 
-&led_strip {
-    chain-length = <20>;
-};
+//&led_strip {
+//    chain-length = <20>;
+//};
 
 / {
     conditional_layers {
@@ -136,12 +136,14 @@
             // | none  | trans  |  trans  |                                              |  trans  |  trans  | none |
 
             bindings = <
-                &to BASE    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &bt BT_DISC    &bt BT_NXT     &bt BT_PRV     &none             &bt BT_CLR
-                &to GAME    &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3      &bt BT_SEL 4
-                &to QWERT   &none           &none            &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &ext_power EP_ON  &studio_unlock
+                &to BASE    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &bt BT_DISC    &bt BT_NXT     &bt BT_PRV     &none              &bt BT_CLR
+                &to GAME    &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3       &bt BT_SEL 4
+                &to QWERT   &none           &none            &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &ext_power EP_TOG  &studio_unlock
                             &trans          &trans                            &trans                   &trans                        &trans         &trans
                 &none       &trans          &trans                                                                                   &trans         &trans            &none
             >;
+
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_BRI_UP C_BRI_DN>;
         };
 
         gamer_layer {
@@ -154,7 +156,7 @@
             // | none  | trans | trans |                                   | trans | trans | none |
 
             bindings = <
-                &kp ESC     &kp N1     &kp N2      &kp N3      &none             &none      &none   &none      &none     &none
+                &kp ESC     &kp N1     &kp N2      &kp N3      &kp P             &none      &none   &none      &none     &none
                 &kp TAB     &kp N4     &kp N5      &kp N6      &kp J             &none      &none   &none      &none     &none
                 &kp GRAVE   &kp N7     &kp N8      &kp N9      &kp M             &none      &none   &none      &none     &none
                             &trans     &trans                  &trans            &trans             &trans     &trans
