@@ -132,7 +132,7 @@
             // | DEF   | RGB_ON | RGB_OFF | RGB_EFF | RGB_EFR |     | &BT_DISC | BT_NXT  | BT_PREV |  &none  | BT_CLR  |
             // | GAME  | &none  |  &none  | RGB_SPI | RGB_SPD |     | BT_SEL0  | BT_SEL1 | BT_SEL2 | BT_SEL3 | BT_SEL4 |
             // | QWERT | &none  |  &none  | RGB_BRI | RGB_BRD |     |  &none   |  &none  |  &none  | &EP_ON  | studio_unlock |
-            // |       | trans  |  trans  |         |  trans  |     |  trans   |         |  trans  |  trans  | none |
+            // |       | trans  |  trans  |         |  trans  |     |  trans   |         |  trans  |  trans  |      |
             // | none  | trans  |  trans  |                                              |  trans  |  trans  | none |
 
             bindings = <
@@ -142,8 +142,6 @@
                             &trans          &trans                            &trans                   &trans                        &trans         &trans
                 &none       &trans          &trans                                                                                   &trans         &trans            &none
             >;
-
-            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_BRI_UP C_BRI_DN>;
         };
 
         gamer_layer {
@@ -156,9 +154,9 @@
             // | none  | trans | trans |                                   | trans | trans | none |
 
             bindings = <
-                &kp ESC     &kp N1     &kp N2      &kp N3      &none             &kp J      &kp L   &kp U      &kp Y     &kp APOS
-                &kp TAB     &kp N4     &kp N5      &kp N6      &kp J             &kp K      &kp N   &kp E      &kp I     &kp O
-                &kp GRAVE   &kp N7     &kp N8      &kp N9      &kp M             &kp M      &kp H   &kp COMMA  &kp DOT   &kp FSLH
+                &kp ESC     &kp N1     &kp N2      &kp N3      &none             &none      &none   &none      &none     &none
+                &kp TAB     &kp N4     &kp N5      &kp N6      &kp J             &none      &none   &none      &none     &none
+                &kp GRAVE   &kp N7     &kp N8      &kp N9      &kp M             &none      &none   &none      &none     &none
                             &trans     &trans                  &trans            &trans             &trans     &trans
                 &none       &trans     &trans                                                       &trans     &trans    &none
             >;
