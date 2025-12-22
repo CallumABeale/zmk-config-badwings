@@ -83,11 +83,11 @@
             // | GAMER | trans | trans |                                  | trans | trans | none |
 
             bindings = <
-                &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none     &kp UP     &none     &to BASE
-                &kp G      &kp A     &kp S     &kp D    &kp F         &none    &kp LEFT  &kp DOWN   &kp RIGHT     &none
-                &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none     &none      &none     &none
+                &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none     &kp UP     &none      &to BASE
+                &kp G      &kp A     &kp S     &kp D    &kp F         &none    &kp LEFT  &kp DOWN   &kp RIGHT  &none
+                &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none     &none      &none      &none
                            &trans    &trans             &trans        &trans             &trans     &trans
-                &mo GAMER  &trans    &trans                                              &trans     &trans    &none
+                &mo GAMER  &trans    &trans                                              &trans     &trans     &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -136,7 +136,7 @@
             // | none  | trans  |  trans  |                                              |  trans  |  trans  | none |
 
             bindings = <
-                &to BASE    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &BT_DISC       &bt BT_NXT     &bt BT_PRV     &none             &bt BT_CLR
+                &to BASE    &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR          &bt BT_DISC    &bt BT_NXT     &bt BT_PRV     &none             &bt BT_CLR
                 &to GAME    &none           &none            &rgb_ug RGB_SPI  &rgb_ug RGB_SPD          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3      &bt BT_SEL 4
                 &to QWERT   &none           &none            &rgb_ug RGB_BRI  &rgb_ug RGB_BRD          &none          &none          &none          &ext_power EP_ON  &studio_unlock
                             &trans          &trans                            &trans                   &trans                        &trans         &trans
