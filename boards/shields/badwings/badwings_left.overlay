@@ -1,4 +1,4 @@
-#include "badwings.dtsi"
+#include "./boards/badwings.dtsi"
 
 &kscan0 {
     col-gpios

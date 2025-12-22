@@ -1,4 +1,4 @@
-#include "badwings.dtsi"
+#include "./boards/badwings.dtsi"
 
 &default_transform {
     col-offset = <5>;
