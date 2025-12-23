@@ -71,6 +71,8 @@
                            &trans     &trans                 &trans               &trans              &trans     &trans
                 &mo LOWER  &trans     &trans                                                          &trans     &trans    &mo RAISE
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         game_layer {
@@ -149,16 +151,16 @@
         gamer_layer {
             // RIGHT HALF NOT USED
             // ---------------------------------------------------------------------------------
-            // |  ESC  |  N1   |  N2   |  N3  | none  |     | none  | none | none  | none  | none |
+            // |  ESC  |  N1   |  N2   |  N3  |   M   |     | none  | none | none  | none  | none |
             // |  TAB  |  N4   |  N5   |  N6  |   J   |     | none  | none | none  | none  | none |
-            // | GRAVE |  N7   |  N8   |  N9  |   M   |     | none  | none | none  | none  | none |
+            // |   K   |   U   |   I   |  O   |   P   |     | none  | none | none  | none  | none |
             // |       | trans | trans |      | trans |     | trans |      | trans | trans |      |
             // | none  | trans | trans |                                   | trans | trans | none |
 
             bindings = <
-                &kp ESC     &kp N1     &kp N2      &kp N3      &kp P             &none      &none   &none      &none     &none
+                &kp ESC     &kp N1     &kp N2      &kp N3      &kp M             &none      &none   &none      &none     &none
                 &kp TAB     &kp N4     &kp N5      &kp N6      &kp J             &none      &none   &none      &none     &none
-                &kp GRAVE   &kp N7     &kp N8      &kp N9      &kp M             &none      &none   &none      &none     &none
+                &kp K       &kp U      &kp I       &kp O       &kp P             &none      &none   &none      &none     &none
                             &trans     &trans                  &trans            &trans             &trans     &trans
                 &none       &trans     &trans                                                       &trans     &trans    &none
             >;
