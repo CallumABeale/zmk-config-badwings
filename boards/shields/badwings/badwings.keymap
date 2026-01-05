@@ -81,15 +81,15 @@
             // |   T   |   Q   |   W   |  E  |   R   |     | none  | none |  UP   | none  | DEF  |
             // |   G   |   A   |   S   |  D  |   F   |     | none  | LEFT | DOWN  | RIGHT | none |
             // |   B   |   Z   |   X   |  C  |   V   |     | none  | none | none  | none  | none |
-            //         | trans | trans |     | trans |     | trans |      | trans | trans |
+            //         | LSHFT | SPACE |     | trans |     | trans |      | trans | trans |
             // | GAMER | trans | trans |                                  | trans | trans | none |
 
             bindings = <
-                &kp T      &kp Q     &kp W     &kp E    &kp R         &none    &none     &kp UP     &none      &to BASE
-                &kp G      &kp A     &kp S     &kp D    &kp F         &none    &kp LEFT  &kp DOWN   &kp RIGHT  &none
-                &kp B      &kp Z     &kp X     &kp C    &kp V         &none    &none     &none      &none      &none
-                           &trans    &trans             &trans        &trans             &trans     &trans
-                &mo GAMER  &trans    &trans                                              &trans     &trans     &none
+                &kp T      &kp Q      &kp W      &kp E    &kp R         &none    &none     &kp UP     &none      &to BASE
+                &kp G      &kp A      &kp S      &kp D    &kp F         &none    &kp LEFT  &kp DOWN   &kp RIGHT  &none
+                &kp B      &kp Z      &kp X      &kp C    &kp V         &none    &none     &none      &none      &none
+                           &kp LSHFT  &kp SPACE           &trans        &trans             &trans     &trans
+                &mo GAMER  &trans     &trans                                               &trans     &trans     &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -97,18 +97,18 @@
 
         lower_layer {
             // ---------------------------------------------------------------------------------
-            // |  ESC  |  N1   |  N2   |   N3   | EQUAL |    |   +   |  -   |  *    |   /   | none  |
+            // |  ESC  |  N1   |  N2   |   N3   | none  |    | none  | LBKT |  UP   | RBKT  | none  |
             // |  TAB  |  N4   |  N5   |   N6   | none  |    | LEFT  |  UP  | DOWN  | RIGHT | none  |
             // | GRAVE |  N7   |  N8   |   N9   |  N0   |    | none  | none | none  | none  | none  |
             // |       | trans | trans |        | trans |    | trans |      | trans | trans | none  |
             // | trans | trans | trans |                                    | trans | trans | trans |
 
             bindings = <
-                &kp ESC    &kp N1   &kp N2   &kp N3   &kp EQUAL          &kp PLUS    &kp MINUS   &kp STAR    &kp FSLH     &none
-                &kp TAB    &kp N4   &kp N5   &kp N6   &none              &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT    &none
-                &kp GRAVE  &kp N7   &kp N8   &kp N9   &kp N0             &none       &none       &none       &none        &none
-                           &trans   &trans            &trans             &trans                  &trans      &trans
-                &trans     &trans   &trans                                                       &trans      &trans       &trans
+                &kp ESC    &kp N1   &kp N2   &kp N3   &kp EQUAL          &none     &kp LBKT   &kp UP     &kp RBKT   &none
+                &kp TAB    &kp N4   &kp N5   &kp N6   &none              &kp LEFT  &kp EQUAL  &kp DOWN   &kp RIGHT  &none
+                &kp GRAVE  &kp N7   &kp N8   &kp N9   &kp N0             &PLUS     &MINUS     &kp STAR   &kp FSLH   &kp EQUAL
+                           &trans   &trans            &trans             &trans               &trans     &trans
+                &trans     &trans   &trans                                                    &trans     &trans     &trans
             >;
         };
 
@@ -116,16 +116,16 @@
             // ---------------------------------------------------------------------------------
             // |  ESC  |  F1   |  F2   |  F3   |  F4   |     | LPAR  | RPAR |  LT   |  GT   | PIPE  |
             // |  TAB  |  F5   |  F6   |  F7   |  F8   |     | LBKT  | RBKT | SEMI  | BSLH  | FSLH  |
-            // | GRAVE |  F9   |  F10  |  F11  |  F12  |     |  F11  | F12  | PG_UP | PG_DN | QMARK |
+            // | GRAVE |  F9   |  F10  |  F11  |  F12  |     | none  | none | PG_UP | PG_DN | QMARK |
             // |       | trans | trans |       | trans |     | trans |      | trans | trans |       |
             // | trans | trans | trans |                                    | trans | trans | trans |
 
             bindings = <
-                &kp ESC    &none      &kp UP     &none       &none          &kp F1    &kp F2    &kp F3     &kp F4     &kp F5
-                &kp TAB    &kp LEFT   &kp DOWN   &kp RIGHT   &none          &kp F6    &kp F7    &kp F8     &kp F9     &kp F10
-                &kp GRAVE  &none      &none      &none       &none          &kp F11   &kp F12   &kp PG_UP  &kp PG_DN  &none
-                           &trans     &trans                 &trans         &trans              &trans     &trans
-                &trans     &trans     &trans                                                    &trans     &trans     &trans
+                &kp ESC    &kp F1   &kp F2    &kp F3    &kp F4          &kp LPAR    &kp RPAR    &kp LT     &kp GT     &kp PIPE
+                &kp TAB    &kp F5   &kp F6    &kp F7    &kp F8          &kp LBKT    &kp RBKT    &kp SEMI   &kp BSLH   &kp FSLH
+                &kp GRAVE  &kp F9   &kp F10   &kp F11   &kp F12         &none       &kp none    &kp PG_UP  &kp PG_DN  &QMARK
+                           &trans   &trans               &trans         &trans                  &trans     &trans
+                &trans     &trans   &trans                                                      &trans     &trans     &trans
             >;
         };
 
