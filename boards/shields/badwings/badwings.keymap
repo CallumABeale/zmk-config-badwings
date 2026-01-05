@@ -106,7 +106,7 @@
             bindings = <
                 &kp ESC    &kp N1   &kp N2   &kp N3   &kp EQUAL          &none     &kp LBKT   &kp UP     &kp RBKT   &none
                 &kp TAB    &kp N4   &kp N5   &kp N6   &none              &kp LEFT  &kp EQUAL  &kp DOWN   &kp RIGHT  &none
-                &kp GRAVE  &kp N7   &kp N8   &kp N9   &kp N0             &PLUS     &MINUS     &kp STAR   &kp FSLH   &kp EQUAL
+                &kp GRAVE  &kp N7   &kp N8   &kp N9   &kp N0             &kp PLUS  &kp MINUS  &kp STAR   &kp FSLH   &kp EQUAL
                            &trans   &trans            &trans             &trans               &trans     &trans
                 &trans     &trans   &trans                                                    &trans     &trans     &trans
             >;
@@ -123,7 +123,7 @@
             bindings = <
                 &kp ESC    &kp F1   &kp F2    &kp F3    &kp F4          &kp LPAR    &kp RPAR    &kp LT     &kp GT     &kp PIPE
                 &kp TAB    &kp F5   &kp F6    &kp F7    &kp F8          &kp LBKT    &kp RBKT    &kp SEMI   &kp BSLH   &kp FSLH
-                &kp GRAVE  &kp F9   &kp F10   &kp F11   &kp F12         &none       &kp none    &kp PG_UP  &kp PG_DN  &QMARK
+                &kp GRAVE  &kp F9   &kp F10   &kp F11   &kp F12         &none       &none       &kp PG_UP  &kp PG_DN  &kp QMARK
                            &trans   &trans               &trans         &trans                  &trans     &trans
                 &trans     &trans   &trans                                                      &trans     &trans     &trans
             >;
